@@ -7,9 +7,7 @@ namespace HRMSApplication.Contracts
         public List<Employee> GetAllEmployees();
         
         public Employee GetEmployee(int id);
-        public bool hii();
-        public Employee GetEmployee(Employee employee);
-        public DivideByZeroException DivideByZero(DivideByZeroException divideByZeroException);
+        
 
     }
 }
