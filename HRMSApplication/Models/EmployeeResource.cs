@@ -1,6 +1,6 @@
 ﻿namespace HRMSApplication.Models
 {
-    public class Employee
+    public class EmployeeResource
     {
         public int empl_id { get; set; }
         public string empl_firstname { get; set; }

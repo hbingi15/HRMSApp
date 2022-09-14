@@ -1,4 +1,6 @@
-﻿using HRMSApplication.Models;
+﻿
+
+using HRMSApplication.EntityModels;
 
 namespace HRMSApplication.Contracts
 {
@@ -8,7 +10,7 @@ namespace HRMSApplication.Contracts
 
         public bool AddEmployee(Employee e);
         //public bool DeleteEmployee(Employee e);
-        public bool UpdateEmployee( Employee e);
+       // public bool UpdateEmployee( EmployeeResource e);
 
 
 

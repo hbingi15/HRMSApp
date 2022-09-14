@@ -1,5 +1,5 @@
 ﻿using HRMSApplication.Contracts;
-using HRMSApplication.Models;
+using HRMSApplication.EntityModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -29,7 +29,7 @@ namespace HRMSApplication.Controllers
         [Route("/[Controller]/V1/AddEmployees")]
         public bool AddEmployee([FromBody] Employee e)
         {
-            log.LogInfo("AddEmployee");
+            log.LogInfo("Add Employee");
             return iemp.AddEmployee(e);
 
         }
@@ -42,12 +42,12 @@ namespace HRMSApplication.Controllers
             return iemp.AddEmployee(e);
 
         }*/
-        [HttpPost]
-        [Route("/[Controller]/V1/UpdateEmployee")]
-        public bool UpdateEmployee([FromBody] Employee e)
-        {
-            return iemp.UpdateEmployee(e);
+        //[HttpPut]
+        //[Route("/[Controller]/V1/UpdateEmployee")]
+        //public bool UpdateEmployee([FromBody] EmployeeResource e)
+        //{
+        //    return iemp.UpdateEmployee(e);
 
-        }
+        //}
     }
 }
