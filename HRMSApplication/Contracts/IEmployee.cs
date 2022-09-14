@@ -6,7 +6,7 @@ namespace HRMSApplication.Contracts
     {
         public List<Employee> GetAllEmployees();
         public bool hi();
-        public bool bye();
+        
 
     }
 }
