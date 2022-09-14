@@ -7,11 +7,11 @@ namespace HRMSApplication.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class IEmployeeController : ControllerBase
+    public class EmployeeController : ControllerBase
     {
         ILoggerManager log = null;
         IEmployee iemp;
-        public IEmployeeController(ILoggerManager log, IEmployee iemp)
+        public EmployeeController(ILoggerManager log, IEmployee iemp)
         {
             this.log = log;
             this.iemp = iemp;

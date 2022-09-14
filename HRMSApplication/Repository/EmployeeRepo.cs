@@ -5,11 +5,11 @@ using HRMSApplication.Models;
 
 namespace HRMSApplication.Repository
 {
-    public class IEmployeeRepo : IEmployee
+    public class EmployeeRepo : IEmployee
     {
         EmployeeDapperContext edc;
         ILoggerManager log = null;
-        public IEmployeeRepo(EmployeeDapperContext edc, ILoggerManager log)
+        public EmployeeRepo(EmployeeDapperContext edc, ILoggerManager log)
         {
             this.edc = edc;
             this.log = log;
@@ -18,7 +18,7 @@ namespace HRMSApplication.Repository
         public IEnumerable<Employee> GetAllEmployees()
         {
             log.LogInfo("get the All Employees");
-            var query = "select *from Employees";
+            var query = "select * from Employees";
             using (var conn = edc.CreateConnection())
             {
                 log.LogInfo("Get All Employees from repository");
