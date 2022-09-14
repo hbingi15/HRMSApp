@@ -21,8 +21,17 @@ namespace HRMSApplication.Controllers
         [Route("/[Controller]/V1/AllEmployees")]
         public List<Employee> GetAllEmployees()
         {
-            log.LogInfo("Get All PurchaseOrders");
+            log.LogInfo("Get All Employees");
             return iemp.GetAllEmployees();
+        }
+        //method to add Employess
+        [HttpPost]
+        [Route("/[Controller]/V1/AddEmployees")]
+        public bool AddEmployee([FromBody] Employee e)
+        {
+            log.LogInfo("AddEmployee");
+            return iemp.AddEmployee(e);
+
         }
     }
 }

@@ -27,5 +27,22 @@ namespace HRMSApplication.Repository
             }
 
         }
+        public bool AddEmployee(Employee e)
+        {
+            string query = "insert into Employees(empl_firstname, empl_lastname, empl_surname, empl_empid,empl_joindate, empl_dob, empl_designation, empl_offemail, empl_pemail,empl_mobile, empl_altemail, empl_bloodgroup, empl_gender,empl_address, empl_fathername) Values(@empl_firstname,@empl_lastname, @empl_surname,@empl_empid,@empl_joindate,@empl_dob,@empl_designation,@empl_offemail,@empl_pemail,@empl_mobile,@empl_altemail,@empl_bloodgroup,@empl_gender,@empl_address,@empl_fathername)";
+            using (var conn = edc.CreateConnection())
+            {
+                conn.Open();
+                int nor = conn.Execute(query, new { @empl_firstname = e.empl_firstname, @empl_lastname = e.empl_lastname, @empl_surname = e.empl_surname, @empl_empid = e.empl_empid, @empl_joindate = e.empl_joindate, @empl_dob = e.empl_dob, @empl_designation = e.empl_designation, @empl_offemail = e.empl_offemail, @empl_pemail = e.empl_pemail, @empl_mobile = e.empl_mobile, @empl_altemail = e.empl_altemail, @empl_bloodgroup = e.empl_bloodgroup, @empl_gender = e.empl_gender, @empl_address = e.empl_address, @empl_fathername = e.empl_fatherName });
+                if (nor == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
     }
 }
