@@ -6,7 +6,7 @@ namespace HRMSApplication.Contracts
     {
         public List<Employee> GetAllEmployees();
         
-        public Employee GetEmployee(int id);
+        
         
 
     }
