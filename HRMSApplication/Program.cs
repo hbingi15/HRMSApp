@@ -20,8 +20,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<ILoggerManager, LoggerManager>();
-builder.Services.AddTransient<IEmployee, EmployeeRepository>();
-builder.Services.AddSingleton<EmployeeDapperContext>();
+builder.Services.AddTransient<IEmployee, IEmployeeRepo>();
+builder.Services.AddTransient<EmployeeDapperContext>();
 
 var app = builder.Build();
 
