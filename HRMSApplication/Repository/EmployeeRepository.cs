@@ -5,11 +5,11 @@ using HRMSApplication.Models;
 
 namespace HRMSApplication.Repository
 {
-    public class EmployeeRepo : IEmployee
+    public class EmployeeRepository : IEmployee
     {
         EmployeeDapperContext edc;
         ILoggerManager log = null;
-        public EmployeeRepo(EmployeeDapperContext edc, ILoggerManager log)
+        public EmployeeRepository(EmployeeDapperContext edc, ILoggerManager log)
         {
             this.edc = edc;
             this.log = log;
