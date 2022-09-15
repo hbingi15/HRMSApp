@@ -5,9 +5,7 @@ using HRMSApplication.DapperORM;
 using HRMSApplication.Models;
 
 namespace HRMSApplication.Repository
-{ /// <summary>
-/// 
-/// </summary>
+{ 
     public class EmployeeRepository : IEmployee
     {
         EmployeeDapperContext edc;
