@@ -41,7 +41,7 @@ namespace HRMSApplication.Repository
             return employees.ToList();
 
         }
-
+        //method to add new employee
         public bool  AddEmployee(EmployeeResource e)
         {
             string query = "insert into Employees(empl_firstname, empl_lastname, empl_surname, empl_empid,empl_joindate, empl_dob, empl_designation, empl_offemail, empl_pemail,empl_mobile, empl_altemail, empl_bloodgroup, empl_gender,empl_address, empl_fathername) Values(@fnm,@lnm, @snm,@id,@jdt,@dob,@des,@ofmail,@pmail,@mbl,@amail,@bgrp,@empl_gender,@ads,@frnm)";
@@ -67,13 +67,14 @@ namespace HRMSApplication.Repository
             }
         }
 
-        public bool DeleteEmployee(EmployeeResource e)
+        public bool DeleteEmployee(string empId)
         {
-            var query = "Delete Employees set Employee_status='Deleted' where empl_id=@empl_id;";
+           // var query = "Update Employees set Employee_status='Deleted' where empl_empid='empId' ";
             using (var conn = edc.CreateConnection())
             {
+                var str = empId;
                 conn.Open();
-                int nor = conn.Execute(query, new { @empl_id = e.empl_id });
+                int nor = conn.Execute("update Employees set Employee_status='Deleted' where empl_empid=@eid", new {eid=str});
                 if (nor == 1)
                 {
                     return true;
@@ -84,13 +85,15 @@ namespace HRMSApplication.Repository
                 }
             }
         }
-        public bool UpdateEmployee(EmployeeResource e)
+        public bool EditEmployee(EditEmployee empId)
         {
-            string query = "update Employees set empl_mobile=@empl_mobile,empl_address=@empl_address  where empl_id=@empl_id";
+            //string query = "update Employees set empl_mobile=@empl_mobile,empl_address=@empl_address  where empl_id=@empl_id";
             using (var conn = edc.CreateConnection())
             {
+                var str = empId;
                 conn.Open();
-                int nor = conn.Execute(query, new { @empl_mobile = e.empl_mobile, @empl_address = e.empl_address });
+                int nor = conn.Execute("update Employees set empl_mobile=@empl_mobile,empl_address=@empl_address  where empl_empid=@empl_empid", new {eid =str});
+
                 if (nor == 1)
                 {
                     return true;

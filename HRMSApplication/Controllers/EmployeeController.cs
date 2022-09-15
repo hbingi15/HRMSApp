@@ -40,19 +40,20 @@ namespace HRMSApplication.Controllers
 
         [HttpPatch]
         [Route("/[Controller]/V1/DeleteEmployees")]
-        public bool DeleteEmployee([FromBody] EmployeeResource e)
+        public bool DeleteEmployee([FromBody] string empId)
         {
             log.LogInfo("Delete Employee");
             
-            return iemp.DeleteEmployee(e);
+            return iemp.DeleteEmployee(empId);
 
         }
 
         [HttpPut]
         [Route("/[Controller]/V1/UpdateEmployee")]
-        public bool UpdateEmployee([FromBody] EmployeeResource e)
+        public bool UpdateEmployee([FromBody] EditEmployee empId)
         {
-            return iemp.UpdateEmployee(e);
+            log.LogInfo(" Edit Employee");
+            return iemp.EditEmployee(empId);
 
         }
     }

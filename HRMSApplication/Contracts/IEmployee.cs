@@ -9,10 +9,8 @@ namespace HRMSApplication.Contracts
         public IEnumerable<EmployeeResource> GetAllEmployees();
 
         public bool AddEmployee(EmployeeResource e);
-        public bool DeleteEmployee(EmployeeResource e);
-        public bool UpdateEmployee( EmployeeResource e);
+        public bool DeleteEmployee(string empId);
 
-
-
+        public bool EditEmployee(EditEmployee empId);
     }
 }
