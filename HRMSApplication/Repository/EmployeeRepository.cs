@@ -1,7 +1,6 @@
 ﻿using Dapper;
 using HRMSApplication.Contracts;
 using HRMSApplication.DapperORM;
-
 using HRMSApplication.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,9 +18,9 @@ namespace HRMSApplication.Repository
         }
 
         //method to get the All Employees
-        public IEnumerable<EmployeeResource> GetAllEmployees()
+        public IEnumerable<EmployeeEntity> GetAllEmployees()
         {
-            IEnumerable<EmployeeResource> employees = null;
+            IEnumerable<EmployeeEntity> employees = null;
             try
             {
                 log.LogInfo("get the All Employees");
@@ -29,7 +28,7 @@ namespace HRMSApplication.Repository
                 using (var conn = edc.CreateConnection())
                 {
                     log.LogInfo("Get All Employees from repository");
-                    employees = (List<EmployeeResource>)conn.Query<EmployeeResource>(query);
+                    employees = (List<EmployeeEntity>)conn.Query<EmployeeEntity>(query);
                     return employees.ToList();
                 }
             }
@@ -41,7 +40,7 @@ namespace HRMSApplication.Repository
 
         }
         //method to add new employee
-        public bool  AddEmployee(EmployeeResource e)
+        public bool  AddEmployee(EmployeeEntity e)
         {
             string query = "insert into Employees(empl_firstname, empl_lastname, empl_surname, empl_empid,empl_joindate, empl_dob, empl_designation, empl_offemail, empl_pemail,empl_mobile, empl_altemail, empl_bloodgroup, empl_gender,empl_address, empl_fathername) Values(@fnm,@lnm, @snm,@id,@jdt,@dob,@des,@ofmail,@pmail,@mbl,@amail,@bgrp,@gn,@ads,@frnm)";
             try

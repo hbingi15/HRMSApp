@@ -22,7 +22,7 @@ namespace HRMSApplication.Controllers
         //method to get the All Employees
         [HttpGet]
         [Route("/[Controller]/V1/AllEmployees")]
-        public IEnumerable<EmployeeResource> GetAllEmployees()
+        public IEnumerable<EmployeeEntity> GetAllEmployees()
         {
             log.LogInfo("Get All Employees");
             return iemp.GetAllEmployees();
@@ -31,7 +31,7 @@ namespace HRMSApplication.Controllers
         //method to add Employee
         [HttpPost]
         [Route("/[Controller]/V1/AddEmployee")]
-        public IActionResult AddEmployee([FromBody]EmployeeResource e)
+        public IActionResult AddEmployee([FromBody]EmployeeEntity e)
         {
             log.LogInfo(" New Employee is Added");
             return Ok(iemp.AddEmployee(e));

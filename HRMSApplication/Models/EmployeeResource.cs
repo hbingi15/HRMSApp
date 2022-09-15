@@ -1,29 +1,26 @@
-﻿namespace HRMSApplication.Models
+﻿namespace HRMSApplication.EntityModels
 {
     public class EmployeeResource
     {
-        //public int empl_id { get; set; }
-        public string empl_firstname { get; set; }
-        public string empl_lastname { get; set; }
-        public string empl_surname { get; set; }
-        public string empl_empid { get; set; }
-        //public ByteArrayContent empl_photo { get; set; }
-        public DateTime empl_joindate { get; set; }
-        public DateTime empl_dob { get; set; }
-        public string empl_designation { get; set; }
-        public string empl_offemail { get; set; }
-        public string empl_pemail { get; set; }
-        public Int64 empl_mobile { get; set; }
-        public string empl_altemail { get; set; }
-        public string empl_bloodgroup { get; set; }
-        public char empl_gender { get; set; } 
-        public string empl_address { get; set; }
-        public string empl_fatherName { get; set; }
+        public string Firstname { get; set; }
+        public string LastName { get; set; }
+        public string SurName { get; set; }
+        public string EmpId { get; set; }
+       //  public string Photo { get; set; }
+        public DateTime Joiningdate { get; set; }
+        public DateTime DOB { get; set; }
+        public string Designation { get; set; }
+        public string OffEmail { get; set; }
+        public string PersonalEmail { get; set; }
+        public Int64 Mobile { get; set; }
+        public string AlternativeEmail { get; set; }
+        public string BloodGroup { get; set; }
+        public string Gender { get; set; }
+        public string Address { get; set; }
+        public string FatherName { get; set; }
         public string Employee_status { get; set; }
-        public DateTime empl_lastUpdatedDate { get; set; }
-        public string empl_lastUpdatedUser { get; set; }
-        
- 
+        public DateTime LastUpdatedDate { get; set; }
+        public string LastUpdatedUser { get; set; }
+
     }
 }
-
