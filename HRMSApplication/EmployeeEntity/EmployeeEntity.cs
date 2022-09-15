@@ -7,7 +7,7 @@
         public string empl_lastname { get; set; }
         public string empl_surname { get; set; }
         public string empl_empid { get; set; }
-        //public ByteArrayContent empl_photo { get; set; }
+        public string empl_photo { get; set; }
         public DateTime empl_joindate { get; set; }
         public DateTime empl_dob { get; set; }
         public string empl_designation { get; set; }

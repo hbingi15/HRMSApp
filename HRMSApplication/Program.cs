@@ -21,8 +21,11 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<ILoggerManager, LoggerManager>();
 builder.Services.AddTransient<IEmployee, EmployeeRepository>();
-builder.Services.AddTransient<EmployeeDapperContext>();
+builder.Services.AddSingleton<IAdminEmployee, AdminEmployeeRepository>();
 
+
+
+builder.Services.AddTransient<EmployeeDapperContext>();
 
 var app = builder.Build();
 
