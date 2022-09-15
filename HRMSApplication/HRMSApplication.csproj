@@ -8,10 +8,16 @@
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.9" />
     <PackageReference Include="NLog" Version="5.0.4" />
     <PackageReference Include="NLog.Web.AspNetCore" Version="5.1.4" />
     <PackageReference Include="Npgsql" Version="6.0.6" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\v1\" />
+    <Folder Include="Controllers\v2\" />
   </ItemGroup>
 
 </Project>
