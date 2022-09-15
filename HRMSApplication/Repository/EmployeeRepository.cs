@@ -3,6 +3,7 @@ using HRMSApplication.Contracts;
 using HRMSApplication.DapperORM;
 
 using HRMSApplication.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace HRMSApplication.Repository
 { 
@@ -42,12 +43,14 @@ namespace HRMSApplication.Repository
         //method to add new employee
         public bool  AddEmployee(EmployeeResource e)
         {
-            string query = "insert into Employees(empl_firstname, empl_lastname, empl_surname, empl_empid,empl_joindate, empl_dob, empl_designation, empl_offemail, empl_pemail,empl_mobile, empl_altemail, empl_bloodgroup, empl_gender,empl_address, empl_fathername) Values(@fnm,@lnm, @snm,@id,@jdt,@dob,@des,@ofmail,@pmail,@mbl,@amail,@bgrp,@empl_gender,@ads,@frnm)";
-            //try
-            //{
+            string query = "insert into Employees(empl_firstname, empl_lastname, empl_surname, empl_empid,empl_joindate, empl_dob, empl_designation, empl_offemail, empl_pemail,empl_mobile, empl_altemail, empl_bloodgroup, empl_gender,empl_address, empl_fathername) Values(@fnm,@lnm, @snm,@id,@jdt,@dob,@des,@ofmail,@pmail,@mbl,@amail,@bgrp,@gn,@ads,@frnm)";
+            try
+            {
                 using (var conn = edc.CreateConnection())
                 {
+
                     conn.Open();
+                    log.LogInfo("add new employee function");
                     int nor = conn.Execute(query, new { @fnm = e.empl_firstname, @lnm = e.empl_lastname, @snm = e.empl_surname, @id = e.empl_empid, @jdt = e.empl_joindate, @dob = e.empl_dob, @des = e.empl_designation, @ofmail = e.empl_offemail, @pmail = e.empl_pemail, @mbl = e.empl_mobile, @amail = e.empl_altemail, @bgrp = e.empl_bloodgroup, @gn = e.empl_gender, @ads = e.empl_address, @frnm = e.empl_fatherName });
                     if (nor == 1)
                     {
@@ -58,20 +61,20 @@ namespace HRMSApplication.Repository
                         return false;
                     }
                 }
-            //}
-            //catch (Exception msg)
-            //{
-            //    throw msg;
-            //}
+            }
+            catch (Exception msg)
+            {
+                throw msg;
+            }
         }
-
+        // used for deleting employee
         public bool DeleteEmployee(string empId)
         {
-           // var query = "Update Employees set Employee_status='Deleted' where empl_empid='empId' ";
-            using (var conn = edc.CreateConnection())
+           using (var conn = edc.CreateConnection())
             {
                 var str = empId;
                 conn.Open();
+                log.LogInfo("deleting employee function");
                 int nor = conn.Execute("update Employees set Employee_status='Deleted' where empl_empid=@eid", new {eid=str});
                 if (nor == 1)
                 {
@@ -83,16 +86,17 @@ namespace HRMSApplication.Repository
                 }
             }
         }
+        //used to update the employee
         public bool EditEmployee(EditEmployee empId)
         {
-            //string query = "update Employees set empl_mobile=@empl_mobile,empl_address=@empl_address  where empl_id=@empl_id";
-            using (var conn = edc.CreateConnection()) 
+              using (var conn = edc.CreateConnection()) 
             {
                 var str = empId;
                 conn.Open();
+                log.LogInfo("update the employee function");
                 int nor = conn.Execute("update Employees set empl_mobile=@mb,empl_address=@adr  where empl_empid=@empid", new {empid =empId.empl_empid,mb=empId.empl_mobile,adr=empId.empl_address});
 
-                if (nor == 1)
+                if ( nor==1)
                 {
                     return true;
                 }

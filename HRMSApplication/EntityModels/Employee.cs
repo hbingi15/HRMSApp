@@ -14,14 +14,13 @@
         public string PersonalEmail { get; set; }
         public Int64 Mobile { get; set; }
         public string AlternativeEmail { get; set; }
-       
         public string BloodGroup { get; set; }
         public string Gender { get; set; }
         public string Address { get; set; }
         public string empl_fathername { get; set; }
         public string Employee_status { get; set; }
-       // public DateTime LastUpdatedDate { get; set; }
-       // public string LastUpdatedUser { get; set; }
+        public DateTime LastUpdatedDate { get; set; }
+        public string LastUpdatedUser { get; set; }
 
     }
 }

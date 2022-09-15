@@ -1,6 +1,7 @@
 ﻿
 
 using HRMSApplication.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace HRMSApplication.Contracts
 {

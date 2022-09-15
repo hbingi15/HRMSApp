@@ -31,29 +31,31 @@ namespace HRMSApplication.Controllers
         //method to add Employee
         [HttpPost]
         [Route("/[Controller]/V1/AddEmployee")]
-        public bool AddEmployee([FromBody]EmployeeResource e)
+        public IActionResult AddEmployee([FromBody]EmployeeResource e)
         {
-            log.LogInfo("Add Employee");
-            return iemp.AddEmployee(e);
+            log.LogInfo(" New Employee is Added");
+            return Ok(iemp.AddEmployee(e));
 
         }
 
+        //method to delete Employee
         [HttpPatch]
         [Route("/[Controller]/V1/DeleteEmployees")]
-        public bool DeleteEmployee([FromBody] string empId)
+        public IActionResult DeleteEmployee([FromBody] string empId)
         {
-            log.LogInfo("Delete Employee");
+            log.LogInfo("Existing Employee is Delete ");
             
-            return iemp.DeleteEmployee(empId);
+            return Ok(iemp.DeleteEmployee(empId));
 
         }
 
+        //method to update Employee
         [HttpPut]
         [Route("/[Controller]/V1/UpdateEmployee")]
-        public bool UpdateEmployee([FromBody] EditEmployee empId)
+        public IActionResult EditEmployee([FromForm]EditEmployee empId)
         {
-            log.LogInfo(" Edit Employee");
-            return iemp.EditEmployee(empId);
+            log.LogInfo("Employee data is updated");
+            return Ok(iemp.EditEmployee(empId));
 
         }
     }

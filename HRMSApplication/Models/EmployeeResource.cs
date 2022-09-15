@@ -20,8 +20,8 @@
         public string empl_address { get; set; }
         public string empl_fatherName { get; set; }
         public string Employee_status { get; set; }
-       //public DateTime empl_lastUpdatedDate { get; set; }
-       // public string empl_lastUpdatedUser { get; set; }
+        public DateTime empl_lastUpdatedDate { get; set; }
+        public string empl_lastUpdatedUser { get; set; }
         
  
     }
