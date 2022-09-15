@@ -43,8 +43,8 @@ namespace HRMSApplication.Repository
         public bool  AddEmployee(EmployeeResource e)
         {
             string query = "insert into Employees(empl_firstname, empl_lastname, empl_surname, empl_empid,empl_joindate, empl_dob, empl_designation, empl_offemail, empl_pemail,empl_mobile, empl_altemail, empl_bloodgroup, empl_gender,empl_address, empl_fathername) Values(@fnm,@lnm, @snm,@id,@jdt,@dob,@des,@ofmail,@pmail,@mbl,@amail,@bgrp,@empl_gender,@ads,@frnm)";
-            try
-            {
+            //try
+            //{
                 using (var conn = edc.CreateConnection())
                 {
                     conn.Open();
@@ -58,11 +58,11 @@ namespace HRMSApplication.Repository
                         return false;
                     }
                 }
-            }
-            catch (Exception msg)
-            {
-                throw msg;
-            }
+            //}
+            //catch (Exception msg)
+            //{
+            //    throw msg;
+            //}
         }
 
         public bool DeleteEmployee(string empId)
@@ -86,11 +86,11 @@ namespace HRMSApplication.Repository
         public bool EditEmployee(EditEmployee empId)
         {
             //string query = "update Employees set empl_mobile=@empl_mobile,empl_address=@empl_address  where empl_id=@empl_id";
-            using (var conn = edc.CreateConnection())
+            using (var conn = edc.CreateConnection()) 
             {
                 var str = empId;
                 conn.Open();
-                int nor = conn.Execute("update Employees set empl_mobile=@empl_mobile,empl_address=@empl_address  where empl_empid=@empl_empid", new {eid =str});
+                int nor = conn.Execute("update Employees set empl_mobile=@mb,empl_address=@adr  where empl_empid=@empid", new {empid =empId.empl_empid,mb=empId.empl_mobile,adr=empId.empl_address});
 
                 if (nor == 1)
                 {
