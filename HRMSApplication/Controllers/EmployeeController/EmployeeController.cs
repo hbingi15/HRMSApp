@@ -4,7 +4,7 @@ using HRMSApplication.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace HRMSApplication.Controllers
+namespace HRMSApplication.Controllers.EmployeeController
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -19,19 +19,10 @@ namespace HRMSApplication.Controllers
             this.iemp = iemp;
         }
 
-        //method to get the All Employees
-        [HttpGet]
-        [Route("/[Controller]/V1/AllEmployees")]
-        public IEnumerable<EmployeeEntity> GetAllEmployees()
-        {
-            log.LogInfo("Get All Employees");
-            return iemp.GetAllEmployees();
-        }
-
         //method to add Employee
         [HttpPost]
         [Route("/[Controller]/V1/AddEmployee")]
-        public IActionResult AddEmployee([FromBody]EmployeeEntity e)
+        public IActionResult AddEmployee([FromBody] EmployeeEntity e)
         {
             log.LogInfo(" New Employee is Added");
             return Ok(iemp.AddEmployee(e));
@@ -44,7 +35,7 @@ namespace HRMSApplication.Controllers
         public IActionResult DeleteEmployee([FromBody] string empId)
         {
             log.LogInfo("Existing Employee is Delete ");
-            
+
             return Ok(iemp.DeleteEmployee(empId));
 
         }
@@ -52,7 +43,7 @@ namespace HRMSApplication.Controllers
         //method to update Employee
         [HttpPut]
         [Route("/[Controller]/V1/UpdateEmployee")]
-        public IActionResult EditEmployee([FromForm]EditEmployee empId)
+        public IActionResult EditEmployee([FromForm] EditEmployee empId)
         {
             log.LogInfo("Employee data is updated");
             return Ok(iemp.EditEmployee(empId));
