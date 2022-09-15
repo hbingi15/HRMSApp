@@ -27,5 +27,14 @@ namespace HRMSApplication.Controllers.AdminEmployeeController
             return iemp.GetAllEmployees();
         }
 
+        //method to update Employee
+        [HttpPut]
+        [Route("/[Controller]/V1/UpdateEmployee")]
+        public IActionResult EditEmployee([FromForm] EditEmployee empId)
+        {
+            log.LogInfo("Employee data is updated");
+            return Ok(iemp.EditEmployee(empId));
+
+        }
     }
 }

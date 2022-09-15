@@ -49,5 +49,6 @@ namespace HRMSApplication.Controllers.EmployeeController
             return Ok(iemp.EditEmployee(empId));
 
         }
+
     }
 }
