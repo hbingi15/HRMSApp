@@ -1,5 +1,6 @@
 ﻿using HRMSApplication.Contracts;
-using HRMSApplication.EntityModels;
+
+using HRMSApplication.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,43 +12,48 @@ namespace HRMSApplication.Controllers
     {
         ILoggerManager log = null;
         IEmployee iemp;
+
         public EmployeeController(ILoggerManager log, IEmployee iemp)
         {
             this.log = log;
             this.iemp = iemp;
         }
+
         //method to get the All Employees
         [HttpGet]
         [Route("/[Controller]/V1/AllEmployees")]
-        public IEnumerable<Employee> GetAllEmployees()
+        public IEnumerable<EmployeeResource> GetAllEmployees()
         {
             log.LogInfo("Get All Employees");
             return iemp.GetAllEmployees();
         }
-        //method to add Employess
+
+        //method to add Employee
         [HttpPost]
-        [Route("/[Controller]/V1/AddEmployees")]
-        public bool AddEmployee([FromBody] Employee e)
+        [Route("/[Controller]/V1/AddEmployee")]
+        public bool AddEmployee([FromBody]EmployeeResource e)
         {
             log.LogInfo("Add Employee");
             return iemp.AddEmployee(e);
 
         }
-        /*[Httppatch]
+
+        [HttpPatch]
         [Route("/[Controller]/V1/DeleteEmployees")]
-        public bool DeleteEmployee([FromBody]Employee e)
+        public bool DeleteEmployee([FromBody] EmployeeResource e)
         {
             log.LogInfo("Delete Employee");
             
-            return iemp.AddEmployee(e);
+            return iemp.DeleteEmployee(e);
 
-        }*/
-        //[HttpPut]
-        //[Route("/[Controller]/V1/UpdateEmployee")]
-        //public bool UpdateEmployee([FromBody] EmployeeResource e)
-        //{
-        //    return iemp.UpdateEmployee(e);
+        }
 
-        //}
+        [HttpPut]
+        [Route("/[Controller]/V1/UpdateEmployee")]
+        public bool UpdateEmployee([FromBody] EmployeeResource e)
+        {
+            return iemp.UpdateEmployee(e);
+
+        }
     }
 }

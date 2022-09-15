@@ -1,16 +1,16 @@
 ﻿
 
-using HRMSApplication.EntityModels;
+using HRMSApplication.Models;
 
 namespace HRMSApplication.Contracts
 {
     public interface IEmployee
     {
-        public IEnumerable<Employee> GetAllEmployees();
+        public IEnumerable<EmployeeResource> GetAllEmployees();
 
-        public bool AddEmployee(Employee e);
-        //public bool DeleteEmployee(Employee e);
-       // public bool UpdateEmployee( EmployeeResource e);
+        public bool AddEmployee(EmployeeResource e);
+        public bool DeleteEmployee(EmployeeResource e);
+        public bool UpdateEmployee( EmployeeResource e);
 
 
 
