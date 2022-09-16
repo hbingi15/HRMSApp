@@ -1,4 +1,4 @@
-﻿using HRMSApplication.EntityModels;
+﻿
 using HRMSApplication.Models.Entity;
 using Microsoft.AspNetCore.Mvc;
 
