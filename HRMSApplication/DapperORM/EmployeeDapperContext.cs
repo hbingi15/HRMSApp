@@ -12,6 +12,9 @@ namespace HRMSApplication.DapperORM
             _configuration = configuration;
             _connectionString = _configuration.GetConnectionString("DefaultConnection");
         }
+
+        public object EmployeeResource { get; internal set; }
+
         public IDbConnection CreateConnection()
             => new NpgsqlConnection(_connectionString);
     }

@@ -1,7 +1,10 @@
-﻿using Dapper;
+﻿using AutoMapper;
+using Dapper;
 using HRMSApplication.Contracts;
 using HRMSApplication.DapperORM;
+using HRMSApplication.EntityModels;
 using HRMSApplication.Models;
+using HRMSApplication.Profie;
 
 namespace HRMSApplication.Repository
 {
@@ -9,11 +12,23 @@ namespace HRMSApplication.Repository
     {
         EmployeeDapperContext edc;
         ILoggerManager log = null;
+        IMapper mapper;
 
-        public AdminEmployeeRepository(EmployeeDapperContext edc, ILoggerManager log)
+        public AdminEmployeeRepository(EmployeeDapperContext edc, ILoggerManager log, IMapper mapper)
         {
             this.edc = edc;
             this.log = log;
+            this.mapper = mapper;
+        }
+        public List<EmployeeResource> GetAllEmployeesWithAutoMapper()
+        {
+
+            //return employees.ToList();
+            //List<EmployeeResource> er = new List<EmployeeResource>();
+            //var conn = edc.CreateConnection();
+           //var query = "select * from EmployeeEntity";
+            var data =  mapper.Map<List<EmployeeResource>, List<EmployeeEntity>>((List<EmployeeResource>)edc.EmployeeResource);
+            return data.ToList();
         }
 
         //method to get the All Employees
@@ -104,6 +119,8 @@ namespace HRMSApplication.Repository
                 }
                 conn.Close();
             }
+
+            
         }
     }
 }

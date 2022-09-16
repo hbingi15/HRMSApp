@@ -1,4 +1,6 @@
-﻿using HRMSApplication.Contracts;
+﻿using AutoMapper;
+using HRMSApplication.Contracts;
+using HRMSApplication.EntityModels;
 using HRMSApplication.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +11,8 @@ namespace HRMSApplication.Controllers.AdminEmployeeController
     [ApiController]
     public class AdminEmployeeController : ControllerBase
     {
+        // define the mapper
+       
         ILoggerManager log = null;
         IAdminEmployee iemp;
 
@@ -38,6 +42,10 @@ namespace HRMSApplication.Controllers.AdminEmployeeController
 
         }
 
+        
+        
+
+
 
         //method to update Employee
         [HttpPut]
@@ -58,6 +66,17 @@ namespace HRMSApplication.Controllers.AdminEmployeeController
             log.LogInfo("Existing Employee is Delete ");
 
             return Ok(iemp.DeleteEmployee(empId));
+
+        }
+
+
+        [HttpPatch]
+        [Route("/[Controller]/V1/GetAllEmployeesWithAutoMapper")]
+        public IActionResult GetAllEmployeesWithAutoMapper()
+        {
+            log.LogInfo(" GetAllEmployeesWithAutoMapper ");
+
+            return Ok(iemp.GetAllEmployeesWithAutoMapper);
 
         }
     }
