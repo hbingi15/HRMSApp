@@ -5,7 +5,7 @@ namespace HRMSApplication.Contracts
 {
     public interface IAdminEmployee
     {
-        public IEnumerable<EmployeeEntity> GetAllEmployees();
+        public Task<IEnumerable<EmployeeEntity>> GetAllEmployees();
 
         public bool AddEmployee(EmployeeEntity e);
         public bool DeleteEmployee(string empId);
