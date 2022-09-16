@@ -1,4 +1,4 @@
-﻿namespace HRMSApplication.Models
+﻿namespace HRMSApplication.Models.Entity
 {
     public class EmployeeEntity
     {
@@ -13,7 +13,7 @@
         public string empl_designation { get; set; }
         public string empl_offemail { get; set; }
         public string empl_pemail { get; set; }
-        public Int64 empl_mobile { get; set; }
+        public long empl_mobile { get; set; }
         public string empl_altemail { get; set; }
         public string empl_bloodgroup { get; set; }
         public char empl_gender { get; set; }
@@ -25,6 +25,6 @@
 
 
     }
-   
+
 }
 

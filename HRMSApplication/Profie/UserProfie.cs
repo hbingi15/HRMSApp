@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using HRMSApplication.EntityModels;
-using HRMSApplication.Models;
+using HRMSApplication.Models.Entity;
+using HRMSApplication.Models.Resource;
 
 namespace HRMSApplication.Profie
 {

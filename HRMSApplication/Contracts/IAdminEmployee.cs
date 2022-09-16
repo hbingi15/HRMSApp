@@ -1,5 +1,5 @@
 ﻿using HRMSApplication.EntityModels;
-using HRMSApplication.Models;
+using HRMSApplication.Models.Entity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HRMSApplication.Contracts

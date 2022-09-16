@@ -1,8 +1,8 @@
 ﻿using HRMSApplication.Contracts;
 using NLog;
-using HRMSApplication.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using HRMSApplication.Models.Entity;
 
 namespace HRMSApplication.Controllers.EmployeeController
 {
