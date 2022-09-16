@@ -24,7 +24,7 @@ namespace HRMSApplication.Controllers.EmployeeController
         
         //method to get the All Employees
         [HttpGet]
-        [Route("/[Controller]/V2/AllEmployees")]
+        [Route("V2/AllEmployees")]
         public IEnumerable<EmployeeEntity> GetAllEmployees()
         {
             log.LogInfo("Get All Employees");
