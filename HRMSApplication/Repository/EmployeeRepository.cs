@@ -1,11 +1,11 @@
 ﻿using Dapper;
 using HRMSApplication.Contracts;
 using HRMSApplication.DapperORM;
-using HRMSApplication.Models;
+using HRMSApplication.Models.Entity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HRMSApplication.Repository
-{ 
+{
     public class EmployeeRepository : IEmployee
     {
         EmployeeDapperContext edc;

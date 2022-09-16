@@ -2,8 +2,8 @@
 using Dapper;
 using HRMSApplication.Contracts;
 using HRMSApplication.DapperORM;
-using HRMSApplication.EntityModels;
-using HRMSApplication.Models;
+using HRMSApplication.Models.Entity;
+using HRMSApplication.Models.Resource;
 using HRMSApplication.Profie;
 
 namespace HRMSApplication.Repository
@@ -20,7 +20,7 @@ namespace HRMSApplication.Repository
             this.log = log;
             this.mapper = mapper;
         }
-        public List<EmployeeResource> GetAllEmployeesWithAutoMapper()
+        public List<EmployeeEntity> GetAllEmployeesWithAutoMapper()
         {
 
             //return employees.ToList();

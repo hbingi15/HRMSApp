@@ -1,4 +1,4 @@
-﻿namespace HRMSApplication.Models
+﻿namespace HRMSApplication.Models.Entity
 {
     public class EmployeeEntity
     {
@@ -26,6 +26,6 @@
 
 
     }
-   
+
 }
 

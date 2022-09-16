@@ -31,12 +31,4 @@
     <PackageReference Include="Volo.Abp.AutoMapper" Version="5.3.4" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Helpers\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\v2\" />
-  </ItemGroup>
-
 </Project>

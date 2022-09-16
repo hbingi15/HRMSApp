@@ -1,6 +1,5 @@
 ﻿using HRMSApplication.Contracts;
-
-using HRMSApplication.Models;
+using HRMSApplication.Models.Entity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

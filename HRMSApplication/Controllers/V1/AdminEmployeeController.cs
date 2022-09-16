@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using HRMSApplication.Contracts;
 using HRMSApplication.EntityModels;
-using HRMSApplication.Models;
+using HRMSApplication.Models.Entity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -70,7 +70,7 @@ namespace HRMSApplication.Controllers.AdminEmployeeController
         }
 
 
-        [HttpPatch]
+        [HttpGet]
         [Route("/[Controller]/V1/GetAllEmployeesWithAutoMapper")]
         public IActionResult GetAllEmployeesWithAutoMapper()
         {
