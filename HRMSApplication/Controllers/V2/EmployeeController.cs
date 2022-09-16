@@ -21,7 +21,7 @@ namespace HRMSApplication.Controllers.EmployeeController
 
         //method to add Employee
         [HttpPost]
-        [Route("/[Controller]/V1/AddEmployee")]
+        [Route("/[Controller]/V2/AddEmployee")]
         public IActionResult AddEmployee([FromBody] EmployeeEntity e)
         {
             log.LogInfo(" New Employee is Added");
@@ -31,7 +31,7 @@ namespace HRMSApplication.Controllers.EmployeeController
 
         //method to delete Employee
         [HttpPatch]
-        [Route("/[Controller]/V1/DeleteEmployees")]
+        [Route("/[Controller]/V2/DeleteEmployees")]
         public IActionResult DeleteEmployee([FromBody] string empId)
         {
             log.LogInfo("Existing Employee is Delete ");
@@ -42,7 +42,7 @@ namespace HRMSApplication.Controllers.EmployeeController
 
         //method to update Employee
         [HttpPut]
-        [Route("/[Controller]/V1/UpdateEmployee")]
+        [Route("/[Controller]/V2/UpdateEmployee")]
         public IActionResult EditEmployee([FromForm] EditEmployee empId)
         {
             log.LogInfo("Employee data is updated");

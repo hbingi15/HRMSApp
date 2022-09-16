@@ -21,10 +21,10 @@ namespace HRMSApplication.Controllers.AdminEmployeeController
         //method to get the All Employees
         [HttpGet]
         [Route("/[Controller]/V1/AllEmployees")]
-        public IEnumerable<EmployeeEntity> GetAllEmployees()
+        public async Task<IEnumerable<EmployeeEntity>> GetAllEmployees()
         {
             log.LogInfo("Get All Employees");
-            return iemp.GetAllEmployees();
+            return await iemp.GetAllEmployees();
         }
 
         //method to add Employee
@@ -48,7 +48,7 @@ namespace HRMSApplication.Controllers.AdminEmployeeController
 
         }
 
-        
+
         //method to delete Employee
         [HttpPatch]
         [Route("/[Controller]/V1/DeleteEmployees")]

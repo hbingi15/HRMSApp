@@ -17,7 +17,7 @@ namespace HRMSApplication.Repository
         }
 
         //method to get the All Employees
-        public IEnumerable<EmployeeEntity> GetAllEmployees()
+        public async Task<IEnumerable<EmployeeEntity>> GetAllEmployees()
         {
             IEnumerable<EmployeeEntity> employees = null;
             try
@@ -28,7 +28,7 @@ namespace HRMSApplication.Repository
                 {
                     log.LogInfo("Get All Employees from repository");
                     employees = (List<EmployeeEntity>)conn.Query<EmployeeEntity>(query);
-                    return employees.ToList();
+                   return employees.ToList();
                 }
             }
             catch (Exception e)
