@@ -20,7 +20,7 @@ namespace HRMSApplication.Repository
             this.log = log;
             this.mapper = mapper;
         }
-        public List<EmployeeResource> GetAllEmployeesWithAutoMapper()
+        public List<EmployeeEntity> GetAllEmployeesWithAutoMapper()
         {
 
             //return employees.ToList();

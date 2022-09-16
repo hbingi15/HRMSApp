@@ -11,6 +11,6 @@ namespace HRMSApplication.Contracts
         public bool AddEmployee(EmployeeEntity e);
         public bool DeleteEmployee(string empId);
         public bool EditEmployee(AdminEditEmployee empId);
-        public List<EmployeeResource> GetAllEmployeesWithAutoMapper();
+        public List<EmployeeEntity> GetAllEmployeesWithAutoMapper();
     }
 }

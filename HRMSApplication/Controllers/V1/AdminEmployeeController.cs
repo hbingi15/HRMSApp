@@ -70,7 +70,7 @@ namespace HRMSApplication.Controllers.AdminEmployeeController
         }
 
 
-        [HttpPatch]
+        [HttpGet]
         [Route("/[Controller]/V1/GetAllEmployeesWithAutoMapper")]
         public IActionResult GetAllEmployeesWithAutoMapper()
         {
