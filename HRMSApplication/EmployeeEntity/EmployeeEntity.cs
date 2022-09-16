@@ -13,12 +13,13 @@
         public string empl_designation { get; set; }
         public string empl_offemail { get; set; }
         public string empl_pemail { get; set; }
-        public Int64 empl_mobile { get; set; }
+        public long empl_mobile { get; set; }
         public string empl_altemail { get; set; }
         public string empl_bloodgroup { get; set; }
         public char empl_gender { get; set; }
         public string empl_address { get; set; }
         public string empl_fatherName { get; set; }
+        public string password { get; set; }
         public string Employee_status { get; set; }
         public DateTime empl_lastUpdatedDate { get; set; }
         public string empl_lastUpdatedUser { get; set; }

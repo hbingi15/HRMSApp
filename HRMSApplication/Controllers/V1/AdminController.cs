@@ -1,5 +1,6 @@
 ﻿using HRMSApplication.Contracts;
 using HRMSApplication.Identity;
+using HRMSApplication.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -29,12 +30,12 @@ namespace HRMSApplication.Controllers.v1
         }
 
         [HttpPost]
-        [Route("User/Create")]
-        public async Task<IActionResult> CreateUser([FromForm][Required] string userName, [Required] string firstName, [Required] string lastName, [Required] string password, [Required] string email, [Required] string phonenumber, [Required] string joindate)
+        [Route("Create/User")]
+        public async Task<IActionResult> CreateUser([FromForm]EmployeeEntity e)
         {
             try
             {
-                ApplicationUser appuser = new ApplicationUser { UserName = userName, FirstName = firstName, LastName = lastName, Email = email, PhoneNumber = phonenumber };
+                ApplicationUser appuser = new ApplicationUser { FirstName = e.empl_firstname, LastName = e.empl_lastname, Email = e.empl_pemail, PhoneNumber = e.empl_mobile};
 
                 appuser.PasswordHash = passwordHasher.HashPassword(appuser, password);
 

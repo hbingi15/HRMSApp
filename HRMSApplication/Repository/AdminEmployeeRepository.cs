@@ -24,11 +24,11 @@ namespace HRMSApplication.Repository
         {
 
             //return employees.ToList();
-            //List<EmployeeResource> er = new List<EmployeeResource>();
+            List<EmployeeResource> er = new List<EmployeeResource>();
             //var conn = edc.CreateConnection();
            //var query = "select * from EmployeeEntity";
-            var data =  mapper.Map<List<EmployeeResource>, List<EmployeeEntity>>((List<EmployeeResource>)edc.EmployeeResource);
-            return data.ToList();
+            //var data =  mapper.Map<List<EmployeeResource>, List<EmployeeEntity>>((List<EmployeeResource>)edc.EmployeeResource);
+            return er;
         }
 
         //method to get the All Employees
