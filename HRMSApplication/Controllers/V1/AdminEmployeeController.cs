@@ -21,10 +21,11 @@ namespace HRMSApplication.Controllers.AdminEmployeeController
         //method to get the All Employees
         [HttpGet]
         [Route("/[Controller]/V1/AllEmployees")]
-        public async Task<IEnumerable<EmployeeEntity>> GetAllEmployees()
+        public async Task<IActionResult> GetAllEmployees()
         {
             log.LogInfo("Get All Employees");
-            return await iemp.GetAllEmployees();
+           return Ok( iemp.GetAllEmployees());
+            
         }
 
         //method to add Employee
