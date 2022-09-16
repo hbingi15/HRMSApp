@@ -1,3 +1,4 @@
+using AutoMapper;
 using HRMSApplication.Contracts;
 using HRMSApplication.DapperORM;
 using HRMSApplication.Identity;
@@ -27,6 +28,7 @@ builder.Services.AddTransient<IEmployee, EmployeeRepository>();
 builder.Services.AddSingleton<IAdminEmployee, AdminEmployeeRepository>();
 
 builder.Services.AddTransient<EmployeeDapperContext>();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

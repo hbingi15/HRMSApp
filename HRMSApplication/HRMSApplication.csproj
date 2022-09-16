@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="Magic.AutoMapper.Extensions.Microsoft.DependencyInjection" Version="1.0.0" />
     <PackageReference Include="Microsoft.AspNet.Identity.Owin" Version="2.2.3" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.9" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.9" />
@@ -27,6 +28,7 @@
     <PackageReference Include="Npgsql" Version="6.0.6" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.6" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="Volo.Abp.AutoMapper" Version="5.3.4" />
   </ItemGroup>
 
 </Project>

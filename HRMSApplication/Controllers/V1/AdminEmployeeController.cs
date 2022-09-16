@@ -1,4 +1,5 @@
-﻿using HRMSApplication.Contracts;
+﻿using AutoMapper;
+using HRMSApplication.Contracts;
 using HRMSApplication.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +10,8 @@ namespace HRMSApplication.Controllers.AdminEmployeeController
     [ApiController]
     public class AdminEmployeeController : ControllerBase
     {
+        // define the mapper
+        public readonly IMapper _mapper;
         ILoggerManager log = null;
         IAdminEmployee iemp;
 
@@ -36,6 +39,10 @@ namespace HRMSApplication.Controllers.AdminEmployeeController
             return Ok(iemp.AddEmployee(e));
 
         }
+
+        
+        
+
 
 
         //method to update Employee
