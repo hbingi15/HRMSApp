@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace HRMSApplication.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    //[DbContext(typeof(ApplicationDbContext))]
     [Migration("20220916071020_firstsnap")]
     partial class firstsnap
     {

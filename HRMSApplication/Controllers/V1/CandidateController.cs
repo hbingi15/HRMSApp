@@ -20,12 +20,36 @@ namespace HRMSApplication.Controllers.V1
         //method to get the All Employees
         [HttpGet]
         [Route("/[Controller]/V1/AllCandidateOfferLetters")]
-        public async Task<IActionResult>  GetAllCandidateOfferL()
+        public async Task<IActionResult> GetAllCandidateOfferL()
         {
             log.LogInfo("Get All Candidates");
             return Ok(ic.GetAllCandidateOfferL());
 
+
+        }
+        [HttpPost]
+        [Route("/[Controller]/V1/CreateEmployeeOfferLetter")]
+        public IActionResult CreateEmployeeOfferLetter([FromBody] ECEntity eop )
+        {
+            log.LogInfo("Create Employee OfferLetter");
+            return Ok(ic.AddEmployeeOfferLetter(eop));
+
         }
 
+        [HttpPost]
+        [Route("/[Controller]/V1/AddEmployeeOfferLetter")]
+        public IActionResult AddEmployeeOfferLetter([FromBody]ECEntity e)
+        {
+            log.LogInfo("Add Employee OfferLetter");
+            return Ok(ic.AddEmployeeOfferLetter(e));
+        }
+
+        [HttpPost]
+        [Route("/[Controller]/V1/AddCandidate")]
+        public IActionResult AddCandidate([FromBody]CandidatesEntity e)
+        {
+            log.LogInfo("Add Employee OfferLetter");
+            return Ok(ic.AddCandidate(e));
+        }
     }
 }

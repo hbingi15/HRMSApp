@@ -8,7 +8,7 @@ using HRMSApplication.Profie;
 
 namespace HRMSApplication.Repository
 {
-    public class AdminEmployeeRepository :IAdminEmployee
+    public class AdminEmployeeRepository : IAdminEmployee
     {
         EmployeeDapperContext edc;
         ILoggerManager log = null;
@@ -20,17 +20,17 @@ namespace HRMSApplication.Repository
             this.log = log;
             this.mapper = mapper;
         }
-        public List<EmployeeEntity> GetAllEmployeesWithAutoMapper()
+        /*public List<EmployeeEntity> GetAllEmployeesWithAutoMapper()
         {
 
             //return employees.ToList();
             List<EmployeeResource> er = new List<EmployeeResource>();
             //var conn = edc.CreateConnection();
-           //var query = "select * from EmployeeEntity";
+            //var query = "select * from EmployeeEntity";
             //var data =  mapper.Map<List<EmployeeResource>, List<EmployeeEntity>>((List<EmployeeResource>)edc.EmployeeResource);
             return er;
         }
-
+*/
         //method to get the All Employees
         public async Task<IEnumerable<EmployeeEntity>> GetAllEmployees()
         {
@@ -43,7 +43,7 @@ namespace HRMSApplication.Repository
                 {
                     log.LogInfo("Get All Employees from repository");
                     employees = (List<EmployeeEntity>)conn.Query<EmployeeEntity>(query);
-                   return employees.ToList();
+                    return employees.ToList();
                 }
             }
             catch (Exception e)
@@ -120,7 +120,7 @@ namespace HRMSApplication.Repository
                 conn.Close();
             }
 
-            
+
         }
     }
 }

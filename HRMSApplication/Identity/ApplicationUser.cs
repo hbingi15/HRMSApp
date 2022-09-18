@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿/*using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 
 namespace HRMSApplication.Identity
@@ -19,6 +19,12 @@ namespace HRMSApplication.Identity
 
         [Required]
         public DateTime JoinDate { get; set; }
+
+        public static implicit operator ApplicationUser(ApplicationUser v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 
+*/

@@ -2,7 +2,7 @@
 {
     public class EOCandidateEntity
     {
-        public int eofr_id { get; set; }
+        
         public string eofr_ref_id { get; set; }
         public int eofr_cand_id { get; set; }
         public DateTime eofr_Offerdate { get; set; }
@@ -19,5 +19,8 @@
         public string cand_email { get; set; }
         public long cand_mobile { get; set; }
         public string cand_address { get; set; }
+       
+
     }
+   
 }

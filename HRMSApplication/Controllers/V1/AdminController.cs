@@ -1,4 +1,4 @@
-﻿using HRMSApplication.Contracts;
+﻿/*using HRMSApplication.Contracts;
 using HRMSApplication.Identity;
 using HRMSApplication.Models;
 using Microsoft.AspNetCore.Http;
@@ -61,3 +61,4 @@ namespace HRMSApplication.Controllers.v1
         }
     }
 }
+*/
