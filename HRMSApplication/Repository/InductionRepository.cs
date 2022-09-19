@@ -2,6 +2,7 @@
 using HRMSApplication.Contracts;
 using HRMSApplication.DapperORM;
 using HRMSApplication.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace HRMSApplication.Repository
 {
@@ -17,9 +18,8 @@ namespace HRMSApplication.Repository
         }
 
         //method to get the All Inductions Done
-        
-        public async Task<IEnumerable<InductionEntity>> AllInductions()
 
+        public IEnumerable<InductionEntity> AllInductions()
         {
             IEnumerable<InductionEntity> inductions = null;
             try
@@ -40,6 +40,36 @@ namespace HRMSApplication.Repository
             return inductions.ToList();
 
         }
-        
+
+
+        //creating induction 
+        public IActionResult CreateInduction(InductionEntity i)
+        {
+            IEnumerable<InductionEntity> induction = null;
+            try
+            {
+                log.LogInfo("Add the new Induction");
+                var query = "call InsertMultipleValues(@eofdate,@eofjob,@eofrepodate,@cfirst,@cmiddle,@clast,@cgender,@cemail,@caddress,@idate)";
+                using (var conn = edc.CreateConnection())
+                {
+                    log.LogInfo("Create new Induction into repository");
+                    int nor = conn.Execute(query, new { @eofdate = i.eofr_offerdate, @eofjob = i.eofr_offeredjob, @eofrepodate = i.eofr_reportingdate, @cfirst = i.cand_firstname, @cmiddle = i.cand_middlename, @clast = i.cand_lastname, @cgender = i.cand_gender, @cemail = i.cand_email, @caddress = i.cand_address, @idate = i.indc_date });
+                    //induction = (List<InductionEntity>)conn.Query<InductionEntity>(query);
+                    //return induction.ToList();
+                    if (nor == 1)
+                    {
+                        return (IActionResult)i;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

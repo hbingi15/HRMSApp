@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HRMSApplication.Controllers.V1
 {
-    public class InductionController: ControllerBase
+    public class InductionController : ControllerBase
     {
         ILoggerManager log = null;
         IInductionRepo id;
@@ -23,7 +23,14 @@ namespace HRMSApplication.Controllers.V1
             return Ok(id.AllInductions());
         }
 
+        //method to create the  Inductions
+        [HttpPost]
+        [Route("/[Controller]/V1/CreateInduction")]
+        public IActionResult CreateInduction(InductionEntity i)
+        {
+            log.LogInfo("Create Induction");
+            return (IActionResult)id.CreateInduction(i);
+        }
 
-        
     }
 }
