@@ -27,10 +27,15 @@ builder.Services.AddTransient<ILoggerManager, LoggerManager>();
 builder.Services.AddTransient<IEmployee, EmployeeRepository>();
 builder.Services.AddSingleton<IAdminEmployee, AdminEmployeeRepository>();
 builder.Services.AddSingleton<ICandidate, CandidateRepo>();
+builder.Services.AddSingleton<IInductionRepo, InductionRepository>();
+
+
 
 
 builder.Services.AddTransient<EmployeeDapperContext>();
 builder.Services.AddTransient<CandidateDapperContext>();
+builder.Services.AddTransient<InductionDapperContext>();
+
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

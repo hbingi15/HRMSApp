@@ -9,7 +9,7 @@ namespace HRMSApplication.Repository
 {
     public class CandidateRepo : ICandidate
     {
-        CandidateDapperContext cdc;
+        CandidateDapperContext cdc=null;
         ILoggerManager log = null;
        
         public CandidateRepo(CandidateDapperContext cdc, ILoggerManager log)
@@ -85,11 +85,11 @@ namespace HRMSApplication.Repository
                 throw msg;
             }
         }
-        public IActionResult AddEmployeeOfferLetter(ECEntity e)
+        public bool AddEmployeeOfferLetter(ECEntity e)
         {
             string query = "insert into EmploymentOffers(eofr_ref_id,eofr_cand_id,eofr_offerdat,eofr_offeredjob,eofr_reportingdate,eofr_status)values(@eofr_ref_id,@eofr_cand_id,@eofr_offerdat,@eofr_offeredjob,@eofr_reportingdate,@eofr_status)";
-            /*try
-            {*/
+            try
+            {
                 using (var conn = cdc.CreateConnection())
                 {
 
@@ -98,19 +98,21 @@ namespace HRMSApplication.Repository
                     int nor = conn.Execute(query, new { @eofr_ref_id = e.eofr_ref_id, @eofr_cand_id = e.eofr_cand_id, @eofr_offerdat = e.eofr_offerdat, @eofr_offeredjob = e.eofr_offeredjob, @eofr_reportingdate = e.eofr_reportingdate, @eofr_status = e.eofr_status });
                     if (nor == 1)
                     {
-                        return (IActionResult)e;
+                        return true;
                     }
                     else
                     {
-                        return null;
+                        return false;
                     }
                 }
+                
             }
-            /*catch (Exception msg)
+            catch (Exception msg)
             {
                 throw null;
-            }*/
-        //}
+            }
+
+        }
 
 
 
