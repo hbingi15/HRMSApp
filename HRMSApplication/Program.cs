@@ -37,7 +37,9 @@ builder.Services.AddTransient<CandidateDapperContext>();
 builder.Services.AddTransient<InductionDapperContext>();
 
 
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+//builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+builder.Services.AddAutoMapper(typeof(Program));
 
 
 //builder.Services.AddDbContext<ApplicationDbContext>(options =>
