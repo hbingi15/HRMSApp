@@ -40,32 +40,6 @@ namespace HRMSApplication.Repository
             return inductions.ToList();
 
         }
-        public bool AddInduction(InductionEntity c)
-        {
-            string query = "insert into Candidates(cand_firstname,cand_middlename,cand_lastname,cand_rdate,cand_gender,cand_dob,cand_email,cand_mobile,cand_address,cand_status)Values (@fnm,@mn,@cand_lastname,@cand_rdate,@cand_gender,@cand_dob,@cand_email,@cand_mobile,@cand_address,@cand_status)";
-            try
-            {
-                using (var conn = edc.CreateConnection())
-                {
-
-                    conn.Open();
-                    log.LogInfo("add new employee function");
-                    int nor = conn.Execute(query, new { @fnm = c.cand_firstname, @mn = c.cand_middlename, @cand_lastname = c.cand_lastname, @cand_rdate = c.cand_rdate, @cand_gender = c.cand_gender, @cand_dob = c.cand_dob, @cand_email = c.cand_email, @cand_mobile = c.cand_mobile, @cand_address = c.cand_address, @cand_status = c.cand_status });
-                    if (nor == 1)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-            }
-            catch (Exception msg)
-            {
-                throw null;
-            }
-
-        }
+        
     }
 }
