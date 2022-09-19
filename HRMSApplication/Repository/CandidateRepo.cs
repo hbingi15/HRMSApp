@@ -59,7 +59,7 @@ namespace HRMSApplication.Repository
             return (IActionResult)eop;
         }
 */
-        public IActionResult AddCandidate(CandidatesEntity e)
+        public bool AddCandidate(CandidatesEntity c)
         {
             string query = "insert into Candidates(cand_firstname,cand_middlename,cand_lastname,cand_rdate,cand_gender,cand_dob,cand_email,cand_mobile,cand_address,cand_status)Values (@fnm,@mn,@cand_lastname,@cand_rdate,@cand_gender,@cand_dob,@cand_email,@cand_mobile,@cand_address,@cand_status)";
             try
@@ -69,21 +69,22 @@ namespace HRMSApplication.Repository
 
                     conn.Open();
                     log.LogInfo("add new employee function");
-                    int nor = conn.Execute(query, new { @fnm = e.cand_firstname, @mn = e.cand_middlename, @cand_lastname = e.cand_lastname, @cand_rdate = e.cand_rdate, @cand_gender = e.cand_gender, @cand_dob = e.cand_dob , @cand_email =e.cand_email, @cand_mobile = e.cand_mobile, @cand_address =e.cand_address ,@cand_status =e.cand_status });
+                    int nor = conn.Execute(query, new { @fnm = c.cand_firstname, @mn = c.cand_middlename, @cand_lastname = c.cand_lastname, @cand_rdate = c.cand_rdate, @cand_gender = c.cand_gender, @cand_dob = c.cand_dob , @cand_email =c.cand_email, @cand_mobile = c.cand_mobile, @cand_address =c.cand_address ,@cand_status =c.cand_status });
                     if (nor == 1)
                     {
-                        return (IActionResult)e;
+                        return true;
                     }
                     else
                     {
-                        return null;
+                        return false;
                     }
                 }
             }
             catch (Exception msg)
             {
-                throw msg;
+                throw null;
             }
+            
         }
         public bool AddEmployeeOfferLetter(ECEntity e)
         {
