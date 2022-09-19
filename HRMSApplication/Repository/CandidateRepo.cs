@@ -88,8 +88,8 @@ namespace HRMSApplication.Repository
         public IActionResult AddEmployeeOfferLetter(ECEntity e)
         {
             string query = "insert into EmploymentOffers(eofr_ref_id,eofr_cand_id,eofr_offerdat,eofr_offeredjob,eofr_reportingdate,eofr_status)values(@eofr_ref_id,@eofr_cand_id,@eofr_offerdat,@eofr_offeredjob,@eofr_reportingdate,@eofr_status)";
-            try
-            {
+            /*try
+            {*/
                 using (var conn = cdc.CreateConnection())
                 {
 
@@ -106,11 +106,11 @@ namespace HRMSApplication.Repository
                     }
                 }
             }
-            catch (Exception msg)
+            /*catch (Exception msg)
             {
                 throw null;
-            }
-        }
+            }*/
+        //}
 
 
 

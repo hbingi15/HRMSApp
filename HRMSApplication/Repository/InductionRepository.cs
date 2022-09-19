@@ -17,9 +17,9 @@ namespace HRMSApplication.Repository
         }
 
         //method to get the All Inductions Done
-        public IEnumerable<InductionEnitity> AllInductions()
+        public IEnumerable<InductionEntity> AllInductions()
         {
-            IEnumerable<InductionEnitity> induction = null;
+            IEnumerable<InductionEntity> induction = null;
             try
             {
                 log.LogInfo("get the All Employees");
@@ -27,7 +27,7 @@ namespace HRMSApplication.Repository
                 using (var conn = edc.CreateConnection())
                 {
                     log.LogInfo("Get All inductions from repository");
-                    induction = (List<InductionEnitity>)conn.Query<InductionEnitity>(query);
+                    induction = (List<InductionEntity>)conn.Query<InductionEntity>(query);
                     return induction.ToList();
                 }
             }

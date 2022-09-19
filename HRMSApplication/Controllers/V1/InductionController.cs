@@ -17,10 +17,10 @@ namespace HRMSApplication.Controllers.V1
         //method to get the All Inductions
         [HttpGet]
         [Route("/[Controller]/V1/AllInductions")]
-        public IEnumerable<InductionEnitity> AllInductions()
+        public IEnumerable<InductionEntity> AllInductions()
         {
             log.LogInfo("Get All Inductions");
-            return (IEnumerable<InductionEnitity>)id.AllInductions();
+            return (IEnumerable<InductionEntity>)id.AllInductions();
         }
     }
 }

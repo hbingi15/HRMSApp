@@ -1,6 +1,6 @@
 ﻿namespace HRMSApplication.Models
 {
-    public class InductionEnitity
+    public class InductionEntity
     {
         public int indc_id { get; set; }
         public int indc_emof_id { get; set; }
