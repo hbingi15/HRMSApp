@@ -5,7 +5,7 @@ namespace HRMSApplication.Contracts
 {
     public interface IInductionRepo
     {
-        public IEnumerable<InductionEntity> AllInductions();
-        public IActionResult CreateInduction(InductionEntity i);
+        public IEnumerable<InductionEntity> AllInduction();
+        public bool AddInduction(InductionEntity e);
     }
 }

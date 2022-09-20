@@ -19,7 +19,7 @@ namespace HRMSApplication.Repository
 
         //method to get the All Inductions Done
 
-        public IEnumerable<InductionEntity> AllInductions()
+        public IEnumerable<InductionEntity> AllInduction()
         {
             IEnumerable<InductionEntity> inductions = null;
             try
@@ -43,32 +43,30 @@ namespace HRMSApplication.Repository
 
 
         //creating induction 
-        public IActionResult CreateInduction(InductionEntity i)
+        public bool AddInduction(InductionEntity e)
         {
-            IEnumerable<InductionEntity> induction = null;
+            string query = "insert into Inductions (indc_id,indc_emof_id,indc_date,indc_processed_ausr_id,indc_status)  values(@indc_id,@indc_emof_id, @indc_date, @indc_processed_ausr_id, @indc_status)";
             try
             {
-                log.LogInfo("Add the new Induction");
-                var query = "call InsertMultipleValues(@eofdate,@eofjob,@eofrepodate,@cfirst,@cmiddle,@clast,@cgender,@cemail,@caddress,@idate)";
                 using (var conn = edc.CreateConnection())
                 {
-                    log.LogInfo("Create new Induction into repository");
-                    int nor = conn.Execute(query, new { @eofdate = i.eofr_offerdate, @eofjob = i.eofr_offeredjob, @eofrepodate = i.eofr_reportingdate, @cfirst = i.cand_firstname, @cmiddle = i.cand_middlename, @clast = i.cand_lastname, @cgender = i.cand_gender, @cemail = i.cand_email, @caddress = i.cand_address, @idate = i.indc_date });
-                    //induction = (List<InductionEntity>)conn.Query<InductionEntity>(query);
-                    //return induction.ToList();
+
+                    conn.Open();
+                    log.LogInfo("add new employee function");
+                    int nor = conn.Execute(query, new { @indc_id = e.indc_id, @indc_emof_id = e.indc_emof_id, @indc_date = e.indc_date, @indc_processed_ausr_id = e.indc_processed_ausr_id, @indc_status = e.indc_status});
                     if (nor == 1)
                     {
-                        return (IActionResult)i;
+                        return true;
                     }
                     else
                     {
-                        return null;
+                        return false;
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception msg)
             {
-                throw e;
+                throw msg;
             }
         }
     }

@@ -110,7 +110,7 @@ namespace HRMSApplication.Repository
             }
             catch (Exception msg)
             {
-                throw null;
+                throw msg;
             }
 
         }

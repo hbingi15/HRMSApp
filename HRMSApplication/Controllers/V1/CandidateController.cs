@@ -27,14 +27,7 @@ namespace HRMSApplication.Controllers.V1
 
 
         }
-        [HttpPost]
-        [Route("/[Controller]/V1/CreateEmployeeOfferLetter")]
-        public IActionResult CreateEmployeeOfferLetter([FromBody] ECEntity eop )
-        {
-            log.LogInfo("Create Employee OfferLetter");
-            return Ok(ic.AddEmployeeOfferLetter(eop));
-
-        }
+        
 
         [HttpPost]
         [Route("/[Controller]/V1/AddEmployeeOfferLetter")]

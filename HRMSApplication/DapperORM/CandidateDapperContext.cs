@@ -13,7 +13,7 @@ namespace HRMSApplication.DapperORM
             _connectionString = _configuration.GetConnectionString("DefaultConnection");
         }
 
-        public object EOCandidateEntity { get; internal set; }
+        public object CandidateResource { get; internal set; }
 
         public IDbConnection CreateConnection()
             => new NpgsqlConnection(_connectionString);

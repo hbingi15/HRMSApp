@@ -17,19 +17,19 @@ namespace HRMSApplication.Controllers.V1
         //method to get the All Inductions
         [HttpGet]
         [Route("/[Controller]/V1/AllInductions")]
-        public async Task<IActionResult> AllInductions()
+        public async Task<IActionResult> AllInduction()
         {
             log.LogInfo("Get All Inductions");
-            return Ok(id.AllInductions());
+            return Ok(id.AllInduction());
         }
 
         //method to create the  Inductions
         [HttpPost]
-        [Route("/[Controller]/V1/CreateInduction")]
-        public IActionResult CreateInduction(InductionEntity i)
+        [Route("/[Controller]/V1/AddInduction")]
+        public async Task<IActionResult> AddInduction([FromBody]InductionEntity i)
         {
-            log.LogInfo("Create Induction");
-            return (IActionResult)id.CreateInduction(i);
+            log.LogInfo("Add Induction");
+            return Ok(id.AddInduction(i)); 
         }
 
     }

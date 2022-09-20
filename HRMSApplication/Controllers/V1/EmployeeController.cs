@@ -37,7 +37,7 @@ namespace HRMSApplication.Controllers.EmployeeController
         //method to update Employee
         [HttpPut]
         [Route("/[Controller]/V1/UpdateEmployee")]
-        public IActionResult EditEmployee([FromForm] EditEmployee empId)
+        public IActionResult EditEmployee([FromBody] EditEmployee empId)
         {
             log.LogInfo("Employee data is updated");
             return Ok(iemp.EditEmployee(empId));
