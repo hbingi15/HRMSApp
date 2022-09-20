@@ -4,12 +4,37 @@ using HRMSApplication.Models.Resource;
 
 namespace HRMSApplication.Profie
 {
-    public class CandidateProfile  : Profile
+    public class EOCandidateProfile : Profile
     {
-        public CandidateProfile()
+        public EOCandidateProfile()
         {
-            CreateMap<CandidatesEntity, CandidateResource>()
+            CreateMap<EOCandidateEntity, EOCandidateReource>()
                 .ForMember(
+                    dest => dest.Eofr_Ref_Id,
+                    opt => opt.MapFrom(src => $"{src.eofr_ref_id}")
+                )
+                .ForMember(
+                    dest => dest.Eofr_Cand_Id,
+                    opt => opt.MapFrom(src => $"{src.eofr_cand_id}")
+                )
+                .ForMember(
+                    dest => dest.Eofr_Offerdat,
+                    opt => opt.MapFrom(src => $"{src.eofr_offerdat}")
+                )
+                .ForMember(
+                    dest => dest.Eofr_Offeredjob,
+                    opt => opt.MapFrom(src => $"{src.eofr_offeredjob}")
+                )
+                .ForMember(
+                    dest => dest.Eofr_Reportingdate,
+                    opt => opt.MapFrom(src => $"{src.eofr_reportingdate}")
+                )
+
+                 .ForMember(
+                    dest => dest.Eofr_Status,
+                    opt => opt.MapFrom(src => $"{src.eofr_status}")
+                    )
+                 .ForMember(
                     dest => dest.FirstName,
                     opt => opt.MapFrom(src => $"{src.cand_firstname}")
                 )
@@ -49,10 +74,9 @@ namespace HRMSApplication.Profie
                  .ForMember(
                     dest => dest.Candidate_Status,
                     opt => opt.MapFrom(src => $"{src.cand_status}")
-                
+
                 );
         }
-
 
 
         }

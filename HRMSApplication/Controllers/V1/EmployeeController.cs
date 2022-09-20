@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
 using HRMSApplication.Models.Resource;
+using HRMSApplication.Profie;
 
 namespace HRMSApplication.Controllers.EmployeeController
 {
@@ -40,7 +41,7 @@ namespace HRMSApplication.Controllers.EmployeeController
         public IActionResult EditEmployee([FromBody] EditEmployee empId)
         {
             log.LogInfo("Employee data is updated");
-            return Ok(iemp.EditEmployee(empId));
+            return Ok(imap.Map<List<EmployeeResource>>(iemp.EditEmployee(empId)));
 
         }
 

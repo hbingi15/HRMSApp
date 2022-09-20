@@ -15,11 +15,13 @@ namespace HRMSApplication.Controllers.AdminEmployeeController
        
         ILoggerManager log = null;
         IAdminEmployee iemp;
+        IMapper imap;
 
-        public AdminEmployeeController(ILoggerManager log, IAdminEmployee iemp)
+        public AdminEmployeeController(ILoggerManager log, IAdminEmployee iemp, IMapper imap)
         {
             this.log = log;
             this.iemp = iemp;
+            this.imap = imap;
         }
 
         //method to get the All Employees
@@ -70,14 +72,6 @@ namespace HRMSApplication.Controllers.AdminEmployeeController
         }
 
 
-        /*[HttpGet]
-        [Route("/[Controller]/V1/GetAllEmployeesWithAutoMapper")]
-        public IActionResult GetAllEmployeesWithAutoMapper()
-        {
-            log.LogInfo(" GetAllEmployeesWithAutoMapper ");
-
-            return Ok(iemp.GetAllEmployeesWithAutoMapper);
-
-        }*/
+        
     }
 }

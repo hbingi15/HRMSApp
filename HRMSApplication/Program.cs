@@ -18,6 +18,7 @@ builder.Services.AddCors();
 var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
 logger.Debug("init main");
 
+builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -39,15 +40,8 @@ builder.Services.AddTransient<InductionDapperContext>();
 
 //builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-builder.Services.AddAutoMapper(typeof(Program));
 
 
-//builder.Services.AddDbContext<ApplicationDbContext>(options =>
-//options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-//AddEntityFrameworkStores method to register the required EF Core implementation of Identity stores
-/*builder.Services.AddIdentity<ApplicationUser, Microsoft.AspNetCore.Identity.IdentityRole>()
-    .AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();*/
 
 
 
