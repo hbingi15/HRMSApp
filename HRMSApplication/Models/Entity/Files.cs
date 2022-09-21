@@ -1,7 +1,11 @@
 ﻿namespace HRMSApplication.Models.Entity
 {
-    public class Files
+    public class filess
     {
-        public FormCollection files { get; set; }
+        public IFormFile Resume { get; set; }
+        public IFormFile SSCCertificates { get; set; }
+        public IFormFile Intercertificates { get; set; }
+        public IFormFile BtechCertificate { get; set; }
+        
     }
 }

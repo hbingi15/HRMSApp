@@ -1,7 +1,9 @@
 ﻿using Dapper;
+using Grpc.Core;
 using HRMSApplication.Contracts;
 using HRMSApplication.DapperORM;
 using HRMSApplication.Models;
+using HRMSApplication.Models.Entity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HRMSApplication.Repository
@@ -10,6 +12,8 @@ namespace HRMSApplication.Repository
     {
         InductionDapperContext edc;
         ILoggerManager log = null;
+
+        public string emid_document { get; private set; }
 
         public InductionRepository(InductionDapperContext edc, ILoggerManager log)
         {
@@ -53,7 +57,7 @@ namespace HRMSApplication.Repository
 
                     conn.Open();
                     log.LogInfo("add new employee function");
-                    int nor = conn.Execute(query, new { @indc_id = e.indc_id, @indc_emof_id = e.indc_emof_id, @indc_date = e.indc_date, @indc_processed_ausr_id = e.indc_processed_ausr_id, @indc_status = e.indc_status});
+                    int nor = conn.Execute(query, new { @indc_id = e.indc_id, @indc_emof_id = e.indc_emof_id, @indc_date = e.indc_date, @indc_processed_ausr_id = e.indc_processed_ausr_id, @indc_status = e.indc_status });
                     if (nor == 1)
                     {
                         return true;
@@ -70,39 +74,35 @@ namespace HRMSApplication.Repository
             }
         }
         public bool AddInductionDocuments(EmpInductionDocEntity id)
-
         {
-            if (id != null)
+
+
+            string query = "insert into EmployeeInductionDocuments (empl_ind_id,emid_docindex,emid_idty_id,emid_document,emid_processed_ausr_id,emid_verified)  values (@empl_ind_id,@emid_docindex,@emid_idty_id,@emid_document,@emid_processed_ausr_id,@emid_verified )";
+            try
             {
-                string filename = Path.GetFileName(id.FileName);
-                if (id.ContentLength < 10485700)
+                using (var conn = edc.CreateConnection())
                 {
-                    id.SaveAs(Server.MapPath("/Files/" + FileName));
-                    string query = "insert into EmployeeInductionDocuments (empl_ind_id,emid_docindex,emid_idty_id,emid_document,emid_processed_ausr_id,emid_verified)  values (@empl_ind_id,@emid_docindex,@emid_idty_id,@emid_document,@emid_processed_ausr_id,@emid_verified )";
-                    try
-                    {
-                        using (var conn = edc.CreateConnection())
-                        {
 
-                            conn.Open();
-                            log.LogInfo("add new employee function");
-                            int nor = conn.Execute(query, new { @empl_ind_id = id.@empl_ind_id, @emid_docindex = id.emid_docindex, @emid_idty_id = id.emid_idty_id, @emid_document = id.emid_document, @emid_processed_ausr_id = id.emid_processed_ausr_id, @emid_verified = id.emid_verified });
-                            if (nor == 1)
-                            {
-                                return true;
-                            }
-                            else
-                            {
-                                return false;
-                            }
-                        }
-                    }
-                    catch (Exception msg)
+                    conn.Open();
+                    log.LogInfo("add new employee function");
+                    int nor = conn.Execute(query, new { @empl_ind_id = id.@empl_ind_id, @emid_docindex = id.emid_docindex, @emid_idty_id = id.emid_idty_id, @emid_document = id.emid_document, @emid_processed_ausr_id = id.emid_processed_ausr_id, @emid_verified = id.emid_verified });
+                    if (nor == 1)
                     {
-                        throw msg;
+                        return true;
                     }
-
+                    else
+                    {
+                        return false;
+                    }
                 }
-
             }
+            catch (Exception msg)
+            {
+                throw msg;
+            }
+
         }
+
+    }
+}
+    

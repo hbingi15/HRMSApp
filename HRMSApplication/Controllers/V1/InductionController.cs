@@ -32,15 +32,40 @@ namespace HRMSApplication.Controllers.V1
             log.LogInfo("Add Induction");
             return Ok(id.AddInduction(i)); 
         }
-
-        public void FileUpload([FromForm]Files files)
+        [HttpPost]
+        [Route("/[Controller]/V1/AInduction")]
+        public void Resumecheck([FromForm] EmpInductionDocEntity file)
         {
             log.LogInfo("Add Files");
             using var memoryStream = new MemoryStream();
-            files.file1.CopyToAsync(memoryStream);
+            file.Resume.CopyToAsync(memoryStream);
             var a = memoryStream.ToArray();
             string s = Convert.ToBase64String(a);
+           
+        
+            log.LogInfo("Add Files");
+            using var memoryStream1 = new MemoryStream();
+            file.SSCCertificates.CopyToAsync(memoryStream1);
+            var a1 = memoryStream1.ToArray();
+            string s1 = Convert.ToBase64String(a1);
+
+        
+        
+            log.LogInfo("Add Files");
+            using var memoryStream2 = new MemoryStream();
+            file.SSCCertificates.CopyToAsync(memoryStream2);
+            var a2 = memoryStream2.ToArray();
+            string s2 = Convert.ToBase64String(a2);
+
+        
+            log.LogInfo("Add Files");
+            using var memoryStream3 = new MemoryStream();
+            file.SSCCertificates.CopyToAsync(memoryStream3);
+            var a3 = memoryStream3.ToArray();
+            string s3 = Convert.ToBase64String(a3);
+
         }
+
 
     }
 }
