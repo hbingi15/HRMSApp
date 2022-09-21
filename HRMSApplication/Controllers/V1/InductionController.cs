@@ -34,7 +34,7 @@ namespace HRMSApplication.Controllers.V1
         }
         [HttpPost]
         [Route("/[Controller]/V1/AInduction")]
-        public void Resumecheck([FromForm] EmpInductionDocEntity file)
+        public void Resume([FromForm] EmpInductionDocEntity file)
         {
             log.LogInfo("Add Files");
             using var memoryStream = new MemoryStream();
@@ -53,14 +53,14 @@ namespace HRMSApplication.Controllers.V1
         
             log.LogInfo("Add Files");
             using var memoryStream2 = new MemoryStream();
-            file.SSCCertificates.CopyToAsync(memoryStream2);
+            file.Intercertificates.CopyToAsync(memoryStream2);
             var a2 = memoryStream2.ToArray();
             string s2 = Convert.ToBase64String(a2);
 
         
             log.LogInfo("Add Files");
             using var memoryStream3 = new MemoryStream();
-            file.SSCCertificates.CopyToAsync(memoryStream3);
+            file.BtechCertificate.CopyToAsync(memoryStream3);
             var a3 = memoryStream3.ToArray();
             string s3 = Convert.ToBase64String(a3);
 
