@@ -29,6 +29,8 @@ builder.Services.AddTransient<IEmployee, EmployeeRepository>();
 builder.Services.AddSingleton<IAdminEmployee, AdminEmployeeRepository>();
 builder.Services.AddSingleton<ICandidate, CandidateRepo>();
 builder.Services.AddSingleton<IInductionRepo, InductionRepository>();
+builder.Services.AddSingleton<IEmployOfferLetter, EmployeOfferLetterRepo>();
+
 
 
 

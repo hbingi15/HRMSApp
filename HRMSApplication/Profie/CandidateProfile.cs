@@ -10,6 +10,10 @@ namespace HRMSApplication.Profie
         {
             CreateMap<CandidatesEntity, CandidateResource>()
                 .ForMember(
+                    dest => dest.ID,
+                    opt => opt.MapFrom(src => src.cand_id)
+                )
+                .ForMember(
                     dest => dest.FirstName,
                     opt => opt.MapFrom(src => $"{src.cand_firstname}")
                 )

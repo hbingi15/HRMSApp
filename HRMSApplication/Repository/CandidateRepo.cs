@@ -59,9 +59,32 @@ namespace HRMSApplication.Repository
             return (IActionResult)eop;
         }
 */
+        public IEnumerable<CandidatesEntity> GetAllCandidates()
+        {
+            IEnumerable<CandidatesEntity> candidates1 = null;
+            try
+            {
+                log.LogInfo("get the All Candidates");
+                var query = "SELECT * from Candidates";
+                using (var conn = cdc.CreateConnection())
+                {
+                    log.LogInfo("Get All Candidate from repository");
+                    candidates1 = (List<CandidatesEntity>)conn.Query<CandidatesEntity>(query);
+                    return candidates1.ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            return candidates1.ToList();
+
+        }
+
+
         public bool AddCandidate(CandidatesEntity c)
         {
-            string query = "insert into Candidates(cand_firstname,cand_middlename,cand_lastname,cand_rdate,cand_gender,cand_dob,cand_email,cand_mobile,cand_address,cand_status)Values (@fnm,@mn,@cand_lastname,@cand_rdate,@cand_gender,@cand_dob,@cand_email,@cand_mobile,@cand_address,@cand_status)";
+            string query = "insert into Candidates(cand_id,cand_firstname,cand_middlename,cand_lastname,cand_rdate,cand_gender,cand_dob,cand_email,cand_mobile,cand_address,cand_status)Values (@cand_id,@fnm,@mn,@cand_lastname,@cand_rdate,@cand_gender,@cand_dob,@cand_email,@cand_mobile,@cand_address,@cand_status)";
             try
             {
                 using (var conn = cdc.CreateConnection())
@@ -69,7 +92,7 @@ namespace HRMSApplication.Repository
 
                     conn.Open();
                     log.LogInfo("add new employee function");
-                    int nor = conn.Execute(query, new { @fnm = c.cand_firstname, @mn = c.cand_middlename, @cand_lastname = c.cand_lastname, @cand_rdate = c.cand_rdate, @cand_gender = c.cand_gender, @cand_dob = c.cand_dob , @cand_email =c.cand_email, @cand_mobile = c.cand_mobile, @cand_address =c.cand_address ,@cand_status =c.cand_status });
+                    int nor = conn.Execute(query, new { @cand_id=c.cand_id, @fnm = c.cand_firstname, @mn = c.cand_middlename, @cand_lastname = c.cand_lastname, @cand_rdate = c.cand_rdate, @cand_gender = c.cand_gender, @cand_dob = c.cand_dob , @cand_email =c.cand_email, @cand_mobile = c.cand_mobile, @cand_address =c.cand_address ,@cand_status =c.cand_status });
                     if (nor == 1)
                     {
                         return true;
@@ -79,42 +102,34 @@ namespace HRMSApplication.Repository
                         return false;
                     }
                 }
-            }
-            catch (Exception msg)
-            {
-                throw null;
-            }
-            
-        }
-        public bool AddEmployeeOfferLetter(ECEntity e)
-        {
-            string query = "insert into EmploymentOffers(eofr_ref_id,eofr_cand_id,eofr_offerdat,eofr_offeredjob,eofr_reportingdate,eofr_status)values(@eofr_ref_id,@eofr_cand_id,@eofr_offerdat,@eofr_offeredjob,@eofr_reportingdate,@eofr_status)";
-            try
-            {
-                using (var conn = cdc.CreateConnection())
-                {
-
-                    conn.Open();
-                    log.LogInfo("add new employee function");
-                    int nor = conn.Execute(query, new { @eofr_ref_id = e.eofr_ref_id, @eofr_cand_id = e.eofr_cand_id, @eofr_offerdat = e.eofr_offerdat, @eofr_offeredjob = e.eofr_offeredjob, @eofr_reportingdate = e.eofr_reportingdate, @eofr_status = e.eofr_status });
-                    if (nor == 1)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-                
             }
             catch (Exception msg)
             {
                 throw msg;
             }
-
         }
+        //used to update the Candidate
+        public bool EditCandidate(EditCandidate c)
+        {
+            using (var conn = cdc.CreateConnection())
+            {
+                var str = c;
+                conn.Open();
+                log.LogInfo("update the employee function");
+                int nor = conn.Execute("update Candidates set cand_email=@cand_email,cand_mobile=@cand_mobile,cand_address=@cand_address,cand_status=@cand_status where cand_id=@cand_id", new { cand_id = c.cand_id, cand_email = c.cand_email, cand_mobile = c.cand_mobile, cand_address = c.cand_address, cand_status =c.cand_status });
 
+                if (nor == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                conn.Close();
+            }
+        }
+        
 
 
     }

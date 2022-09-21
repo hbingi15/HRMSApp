@@ -3,7 +3,7 @@
     public class CandidatesEntity
     {
         
-
+            public int cand_id { get; set; }
             public string cand_firstname { get; set; }
             public string cand_middlename { get; set; }
             public string cand_lastname { get; set; }

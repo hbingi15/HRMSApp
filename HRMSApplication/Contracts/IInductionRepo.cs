@@ -7,5 +7,6 @@ namespace HRMSApplication.Contracts
     {
         public IEnumerable<InductionEntity> AllInduction();
         public bool AddInduction(InductionEntity e);
+        //public bool EmployeeInductionDocuments(EmpInductionDocEntity i);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using HRMSApplication.Contracts;
 using HRMSApplication.Models;
+using HRMSApplication.Models.Entity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HRMSApplication.Controllers.V1
@@ -30,6 +31,15 @@ namespace HRMSApplication.Controllers.V1
         {
             log.LogInfo("Add Induction");
             return Ok(id.AddInduction(i)); 
+        }
+
+        public void FileUpload([FromForm]Files files)
+        {
+            log.LogInfo("Add Files");
+            using var memoryStream = new MemoryStream();
+            files.file1.CopyToAsync(memoryStream);
+            var a = memoryStream.ToArray();
+            string s = Convert.ToBase64String(a);
         }
 
     }

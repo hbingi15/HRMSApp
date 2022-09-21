@@ -7,8 +7,9 @@ namespace HRMSApplication.Contracts
     {
         public Task<IEnumerable<EOCandidateEntity>> GetAllCandidateOfferL();
         //public IActionResult AddEmployeeOfferLetter(ECEntity eop);
-        public bool AddEmployeeOfferLetter(ECEntity e);
+        public IEnumerable<CandidatesEntity> GetAllCandidates();
         public bool AddCandidate(CandidatesEntity e);
+        public bool EditCandidate(EditCandidate c);
 
     }
 }

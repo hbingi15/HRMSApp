@@ -27,25 +27,40 @@ namespace HRMSApplication.Controllers.V1
         public IActionResult GetAllCandidateOfferL()
         {
             log.LogInfo("Get All Candidates");
-            return Ok(imap.Map<List<EOCandidateReource>>(ic.GetAllCandidateOfferL()));
-            
+         // return Ok(imap.Map<List<EOCandidateReource>>(ic.GetAllCandidateOfferL()));
+            return Ok(ic.GetAllCandidateOfferL());
+
         }
 
-
-        [HttpPost]
-        [Route("/[Controller]/V1/AddEmployeeOfferLetter")]
-        public IActionResult AddEmployeeOfferLetter([FromBody]ECEntity e)
+        [HttpGet]
+        [Route("/[Controller]/V1/AllCandidates")]
+        public IActionResult GetAllCandidates()
         {
-            log.LogInfo("Add Employee OfferLetter");
-            return Ok(imap.Map<List<EmployeeOfferResource>>(ic.AddEmployeeOfferLetter(e)));
+            log.LogInfo("Get All Candidates");
+            // return Ok(imap.Map<List<EOCandidateReource>>(ic.GetAllCandidateOfferL()));
+            return Ok(ic.GetAllCandidates());
+
         }
+
 
         [HttpPost]
         [Route("/[Controller]/V1/AddCandidate")]
         public IActionResult AddCandidate([FromBody]CandidatesEntity e)
         {
             log.LogInfo("Add Employee OfferLetter");
-            return Ok(imap.Map<List<CandidateResource>>(ic.AddCandidate(e)));
+            // return Ok(imap.Map<List<CandidateResource>>(ic.AddCandidate(e)));
+            return Ok((ic.AddCandidate(e)));
+
+        }
+
+        //method to update Employee
+        [HttpPut]
+        [Route("/[Controller]/V1/UpdateCandidate")]
+        public IActionResult EditCandidate([FromBody] EditCandidate c)
+        {
+            log.LogInfo("Employee data is updated");
+            return Ok(ic.EditCandidate(c));
+
         }
     }
 }

@@ -69,5 +69,40 @@ namespace HRMSApplication.Repository
                 throw msg;
             }
         }
-    }
-}
+        public bool AddInductionDocuments(EmpInductionDocEntity id)
+
+        {
+            if (id != null)
+            {
+                string filename = Path.GetFileName(id.FileName);
+                if (id.ContentLength < 10485700)
+                {
+                    id.SaveAs(Server.MapPath("/Files/" + FileName));
+                    string query = "insert into EmployeeInductionDocuments (empl_ind_id,emid_docindex,emid_idty_id,emid_document,emid_processed_ausr_id,emid_verified)  values (@empl_ind_id,@emid_docindex,@emid_idty_id,@emid_document,@emid_processed_ausr_id,@emid_verified )";
+                    try
+                    {
+                        using (var conn = edc.CreateConnection())
+                        {
+
+                            conn.Open();
+                            log.LogInfo("add new employee function");
+                            int nor = conn.Execute(query, new { @empl_ind_id = id.@empl_ind_id, @emid_docindex = id.emid_docindex, @emid_idty_id = id.emid_idty_id, @emid_document = id.emid_document, @emid_processed_ausr_id = id.emid_processed_ausr_id, @emid_verified = id.emid_verified });
+                            if (nor == 1)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                    catch (Exception msg)
+                    {
+                        throw msg;
+                    }
+
+                }
+
+            }
+        }

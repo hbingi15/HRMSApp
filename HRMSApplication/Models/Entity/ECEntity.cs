@@ -6,8 +6,7 @@
         public int eofr_cand_id { get; set; }
         public DateTime eofr_offerdat { get; set; }
         public string eofr_offeredjob { get; set; }
-        public DateTime eofr_reportingdate { get; set; }
-        
+        public DateTime eofr_reportingdate { get; set; } 
         public string eofr_status { get; set; }
        
     }
