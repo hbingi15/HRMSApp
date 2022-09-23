@@ -32,7 +32,7 @@ builder.Services.AddSingleton<IInductionRepo, InductionRepository>();
 builder.Services.AddSingleton<IEmployOfferLetter, EmployeOfferLetterRepo>();
 
 
-
+builder.Services.AddTransient<IUser, UserRepository>();
 
 
 builder.Services.AddTransient<EmployeeDapperContext>();
@@ -43,6 +43,12 @@ builder.Services.AddTransient<InductionDapperContext>();
 //builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+//AddEntityFrameworkStores method to register the required EF Core implementation of Identity stores
+builder.Services.AddIdentity<ApplicationUser, Microsoft.AspNetCore.Identity.IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 
 
 
