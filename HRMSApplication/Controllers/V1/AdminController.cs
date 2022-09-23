@@ -53,15 +53,18 @@ namespace HRMSApplication.Controllers.v1
                 //appuser.PasswordHash = BCrypt.Net.BCrypt.HashPassword(u.Password,salt);
 
                 //---------------Assign Direct password into PasswordHash
-                appuser.PasswordHash = u.Password;
+               
+                //appuser.PasswordHash = u.Password;
 
-                //   appuser.PasswordHash = HashPassword(u.Password);
+                //   appuser.Pa
+                //
+                //   sswordHash = HashPassword(u.Password);
 
                 //appuser.PasswordHash = EncodePasswordToBase64(u.Password);
 
                 // string depassword = Decodepassword(appuser.PasswordHash);
 
-                IdentityResult result = await _userManager.CreateAsync(appuser, appuser.PasswordHash);
+                IdentityResult result = await _userManager.CreateAsync(appuser, u.Password);
 
 
                 if (result.Succeeded)
@@ -218,9 +221,22 @@ namespace HRMSApplication.Controllers.v1
                       return Ok("Given credentails are not valid");
                   } */
 
-                bool res = VerifyHashedPassword(user.PasswordHash, al.Password);
-                if (res == true)
+                //bool res = VerifyHashedPassword(user.Password, al.Password);
+                //if (res == true)
+                //{
+                //    return Ok(user.UserName + " Login Successfully");
+                //}
+                //else
+                //{
+                //    return Ok("Given credentails are not valid");
+                //}
+
+
+                if (user != null && await _userManager.CheckPasswordAsync(user, al.Password))
                 {
+                    //generate token
+                    //var token = jwtTokenManager.GenerateToken(user.UserName);
+                   // return Ok(token);
                     return Ok(user.UserName + " Login Successfully");
                 }
                 else
