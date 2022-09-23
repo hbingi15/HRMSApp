@@ -5,9 +5,7 @@ namespace HRMSApplication.Identity
 {
     //ApplicationUser class,we extend the IdentityUser class with  additional properties
     public class ApplicationUser : IdentityUser
-    {/// <summary>
-    /// ///
-    /// </summary>
+    {
         [Required]
         [MaxLength(50)]
         public string FirstName { get; set; }
