@@ -14,7 +14,7 @@ namespace HRMSApplication.Repository
             this.edc = edc;
             this.log = log;
         }
-        //method to get the All Employees
+        //method to get the JobGradeWiseLeaves
         public IEnumerable<JobGradeLeaves> GetAllJobGradeWiseLeaves()
         {
             IEnumerable<JobGradeLeaves> j = null;
