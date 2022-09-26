@@ -30,6 +30,7 @@ builder.Services.AddSingleton<IAdminEmployee, AdminEmployeeRepository>();
 builder.Services.AddSingleton<ICandidate, CandidateRepo>();
 builder.Services.AddSingleton<IInductionRepo, InductionRepository>();
 builder.Services.AddSingleton<IEmployOfferLetter, EmployeOfferLetterRepo>();
+builder.Services.AddSingleton<IHolyday, HolydayRepository>();
 
 
 builder.Services.AddTransient<IUser, UserRepository>();

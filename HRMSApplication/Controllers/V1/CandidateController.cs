@@ -37,7 +37,7 @@ namespace HRMSApplication.Controllers.V1
         public IActionResult GetAllCandidates()
         {
             log.LogInfo("Get All Candidates");
-            // return Ok(imap.Map<List<EOCandidateReource>>(ic.GetAllCandidateOfferL()));
+            // return Ok(imap.Map<List<CandidateReource>>(ic.GetAllCandidateOfferL()));
             return Ok(ic.GetAllCandidates());
 
         }

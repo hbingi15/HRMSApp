@@ -89,7 +89,7 @@ namespace HRMSApplication.Repository
         public bool EditEmployee(EditEmployee empId)
         {
               using (var conn = edc.CreateConnection()) 
-            {
+              {
                 var str = empId;
                 conn.Open();
                 log.LogInfo("update the employee function");

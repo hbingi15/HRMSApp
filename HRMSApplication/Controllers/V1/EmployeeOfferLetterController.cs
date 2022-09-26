@@ -23,6 +23,7 @@ namespace HRMSApplication.Controllers.V1
         public IActionResult GetAllEmployeeOffers()
         {
             log.LogInfo("Get All Employees");
+            //return Ok(imap.Map<List<CandidateReource>>(ic.GetAllCandidateOfferL()));
             return Ok(io.GetAllEmployeeOffers());
         }
 
