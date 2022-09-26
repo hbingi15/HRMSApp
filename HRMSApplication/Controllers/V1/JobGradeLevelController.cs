@@ -18,14 +18,15 @@ namespace HRMSApplication.Controllers.V1
             this.i = i;
             this.imap = im;
         }
-        
+
+        //method to display all JobGradeWiseLeaves
         [HttpGet]
         public IActionResult GetAllJobGradeWiseLeaves()
         {
             log.LogInfo("Get All Employees");
             return Ok(i.GetAllJobGradeWiseLeaves());
         }
-        
+        //method to add JobGradeWiseLeaves
         [HttpPost]
         [Route("/[Controller]/V1/AddJobGradeWiseLeaves")]
         public IActionResult AddJobGradeWiseLeaves(JobGradeLeaves e)
@@ -33,8 +34,8 @@ namespace HRMSApplication.Controllers.V1
             log.LogInfo(" New Employee is Added");
             return Ok(i.AddJobGradeWiseLeaves(e));
         }
-        
-        //method to update Employee
+
+        //method to Update JobGradeWiseLeaves 
         [HttpPut]
         [Route("/[Controller]/V1/UpdateJobGradeWiseLeaves")]
         public IActionResult EditJobGradeWiseLeaves([FromBody] JobGradeLeaves eh)
