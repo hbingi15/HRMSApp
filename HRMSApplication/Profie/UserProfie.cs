@@ -9,6 +9,11 @@ namespace HRMSApplication.Profie
         public UserProfile()
         {
             CreateMap<EmployeeEntity,EmployeeResource>()
+                 .ForMember(
+                    dest => dest.EmployeeId,
+                    opt => opt.MapFrom(src => $"{src.empl_id}")
+                )
+
                 .ForMember(
                     dest => dest.Firstname,
                     opt => opt.MapFrom(src => $"{src.empl_firstname}")
@@ -22,8 +27,16 @@ namespace HRMSApplication.Profie
                     opt => opt.MapFrom(src => $"{src.empl_surname}")
                 )
                 .ForMember(
-                    dest => dest.EmpId,
-                    opt => opt.MapFrom(src => $"{src.empl_empid}")
+                    dest => dest.Rmanager_Empl_Id,
+                    opt => opt.MapFrom(src => $"{src.empl_rmanager_empl_id}")
+                )
+                .ForMember(
+                    dest => dest.Hr_Empl_Id,
+                    opt => opt.MapFrom(src => $"{src.empl_hr_empl_id}")
+                )
+                .ForMember(
+                    dest => dest.Jbgr_Id,
+                    opt => opt.MapFrom(src => $"{src.empl_jbgr_id}")
                 )
                 .ForMember(
                     dest => dest.Joiningdate,
@@ -66,6 +79,14 @@ namespace HRMSApplication.Profie
                     opt => opt.MapFrom(src => $"{src.empl_gender}")
                 )
                 .ForMember(
+                    dest => dest.LastUpdatedDate,
+                    opt => opt.MapFrom(src => $"{src.empl_lastUpdatedDate}")
+                )
+                .ForMember(
+                    dest => dest.LastUpdatedUser,
+                    opt => opt.MapFrom(src => $"{src.empl_lastUpdatedUser}")
+                )
+                .ForMember(
                     dest => dest.Address,
                     opt => opt.MapFrom(src => $"{src.empl_address}")
                 )
@@ -76,7 +97,7 @@ namespace HRMSApplication.Profie
 
                 .ForMember(
                     dest => dest.Employee_status,
-                    opt => opt.MapFrom(src => $"{src.Employee_status}")
+                    opt => opt.MapFrom(src => $"{src.empl_status}")
                 );
         }
     }

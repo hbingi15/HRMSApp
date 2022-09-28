@@ -50,7 +50,7 @@ namespace HRMSApplication.Repository
 
                     conn.Open();
                     log.LogInfo("add new employee function");
-                    int nor = conn.Execute(query, new { @fnm = e.empl_firstname, @lnm = e.empl_lastname, @snm = e.empl_surname, @id = e.empl_empid, @jdt = e.empl_joindate, @dob = e.empl_dob, @des = e.empl_designation, @ofmail = e.empl_offemail, @pmail = e.empl_pemail, @mbl = e.empl_mobile, @amail = e.empl_altemail, @bgrp = e.empl_bloodgroup, @gn = e.empl_gender, @ads = e.empl_address, @frnm = e.empl_fatherName });
+                    int nor = conn.Execute(query, new { @fnm = e.empl_firstname, @lnm = e.empl_lastname, @snm = e.empl_surname,  @jdt = e.empl_joindate, @dob = e.empl_dob, @des = e.empl_designation, @ofmail = e.empl_offemail, @pmail = e.empl_pemail, @mbl = e.empl_mobile, @amail = e.empl_altemail, @bgrp = e.empl_bloodgroup, @gn = e.empl_gender, @ads = e.empl_address, @frnm = e.empl_fatherName });
                     if (nor == 1)
                     {
                         return true;
@@ -74,7 +74,7 @@ namespace HRMSApplication.Repository
                 var str = empId;
                 conn.Open();
                 log.LogInfo("deleting employee function");
-                int nor = conn.Execute("update Employees set Employee_status='Deleted' where empl_empid=@eid", new {eid=str});
+                int nor = conn.Execute("update Employees set Employee_status='Deleted' where empl_id=@eid", new {eid=str});
                 if (nor == 1)
                 {
                     return true;
@@ -93,7 +93,7 @@ namespace HRMSApplication.Repository
                 var str = empId;
                 conn.Open();
                 log.LogInfo("update the employee function");
-                int nor = conn.Execute("update Employees set empl_mobile=@mb,empl_address=@adr  where empl_empid=@empid", new {empid =empId.empl_empid,mb=empId.empl_mobile,adr=empId.empl_address});
+                int nor = conn.Execute("update Employees set empl_mobile=@mb,empl_address=@adr  where empl_id=@empid", new {empid =empId.emp_id,mb=empId.empl_mobile,adr=empId.empl_address});
 
                 if ( nor==1)
                 {
