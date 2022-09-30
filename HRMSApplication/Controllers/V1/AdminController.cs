@@ -1,18 +1,16 @@
 ﻿using HRMSApplication.Contracts;
 using HRMSApplication.Identity;
 using HRMSApplication.Models;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
-using System.Security.Cryptography;
-using Microsoft.AspNetCore.Authorization;
-using System.Text;
+
 
 namespace HRMSApplication.Controllers.v1
 {
-    // [Authorize(Roles = "Admin")]
-    [Route("api/[controller]")]
+    //[Authorize(Roles = "Admin")]
+    [System.Web.Http.Route("api/[controller]")]
     [ApiController]
     public class AdminController : ControllerBase
     {
@@ -22,12 +20,18 @@ namespace HRMSApplication.Controllers.v1
         private UserManager<ApplicationUser> _userManager;
         private IPasswordHasher<ApplicationUser> passwordHasher;
         IUser iu;
-        public AdminController(ILoggerManager log, UserManager<ApplicationUser> umg, IPasswordHasher<ApplicationUser> passwordHasher, IUser iu)
+        IAuthent ia;
+        private RoleManager<IdentityRole> roleManager;
+        IAuthent iau;
+        public AdminController(ILoggerManager log, UserManager<ApplicationUser> umg, IPasswordHasher<ApplicationUser> passwordHasher, IUser iu, IAuthent ia, RoleManager<IdentityRole> roleManager,IAuthent iau)
         {
             this.log = log;
             this._userManager = umg;
             this.passwordHasher = passwordHasher;
             this.iu = iu;
+            this.ia = ia;
+            this.roleManager = roleManager;
+            this.iau=iau;
         }
         //[HttpGet]
         //public async Task<IActionResult> Index()
@@ -90,59 +94,8 @@ namespace HRMSApplication.Controllers.v1
 
         }
 
-        public static string EncodePasswordToBase64(string password)
-        {
-            try
-            {
-                byte[] encData_byte = new byte[password.Length];
-                encData_byte = System.Text.Encoding.UTF8.GetBytes(password);
-                string encodedData = Convert.ToBase64String(encData_byte);
-                return encodedData;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error in base64Encode" + ex.Message);
-            }
-        }
 
-        public static string HashPassword(string password)
-        {
-            byte[] salt;
-            byte[] buffer2;
-            if (password == null)
-            {
-                throw new ArgumentNullException("password");
-            }
-            using (Rfc2898DeriveBytes bytes = new Rfc2898DeriveBytes(password, 0x10, 0x3e8))
-            {
-                salt = bytes.Salt;
-                buffer2 = bytes.GetBytes(0x20);
-            }
-            byte[] dst = new byte[0x31];
-            Buffer.BlockCopy(salt, 0, dst, 1, 0x10);
-            Buffer.BlockCopy(buffer2, 0, dst, 0x11, 0x20);
-            return Convert.ToBase64String(dst);
-        }
-
-        /* public string Decodepassword(string encodedData)
-         {
-             try
-             {
-                 System.Text.UTF8Encoding encoder = new System.Text.UTF8Encoding();
-                 System.Text.Decoder utf8Decode = encoder.GetDecoder();
-                 byte[] todecode_byte = Convert.FromBase64String(encodedData);
-                 int charCount = utf8Decode.GetCharCount(todecode_byte, 0, todecode_byte.Length);
-                 char[] decoded_char = new char[charCount];
-                 utf8Decode.GetChars(todecode_byte, 0, todecode_byte.Length, decoded_char, 0);
-                 string result = new String(decoded_char);
-                 return result;
-             }
-             catch (Exception ex)
-             {
-                 throw new Exception("Error in base64Encode" + ex.Message);
-             }
-          }*/
-
+        
         //---------------------Get All Users---------------------------
         // [AllowAnonymous]
         [HttpGet]
@@ -198,52 +151,37 @@ namespace HRMSApplication.Controllers.v1
         {
             try
             {
-                //--------------Using BCrypt Algorithm------------
+                
                 var user = _userManager.Users.SingleOrDefault(x => x.UserName == al.UserName);
-                /*bool isvalidpassword = BCrypt.Net.BCrypt.Verify(al.Password, user.PasswordHash);
+                var roleNames = await _userManager.GetRolesAsync(user);
+
+                //var roles = roleManager.Roles.ToList();
 
 
-               if (isvalidpassword)
-               {
-                  return Ok(user.UserName + " Login Successfully");
-               }
-               else
-               {
-                   return Ok("Given credentails are not valid");
-               } */
+                //var user = await userManager.FindByEmailAsync(loginModel.Email);
 
-                /* if (al.Password== user.PasswordHash)
-                  {
-                      return Ok(user.UserName + " Login Successfully");
-                  }
-                  else
-                  {
-                      return Ok("Given credentails are not valid");
-                  } */
+                //var roleNames = await userManager.GetRolesAsync(user);
 
-                //bool res = VerifyHashedPassword(user.Password, al.Password);
-                //if (res == true)
-                //{
-                //    return Ok(user.UserName + " Login Successfully");
-                //}
-                //else
-                //{
-                //    return Ok("Given credentails are not valid");
-                //}
-
+                var userrole = roleNames[0];
+                //generate token
+                var token = iau.GenerateToken(user.UserName, userrole);
+               
 
                 if (user != null && await _userManager.CheckPasswordAsync(user, al.Password))
                 {
-                    //generate token
+                     
                     //var token = jwtTokenManager.GenerateToken(user.UserName);
-                   // return Ok(token);
-                    return Ok(user.UserName + " Login Successfully");
+                    // return Ok(token);
+                    
+                    //var rolename= roleManager.Roles.SingleOrDefault(x=>x.Id == roles[0].Id);
+                    //var role = await roleManager.FindByNameAsync(rolename);
+                    //return Ok(user.UserName + " Login Successfully");
+                    return Ok(token);
                 }
                 else
                 {
                     return Ok("Given credentails are not valid");
                 }
-
 
 
             }
@@ -252,45 +190,5 @@ namespace HRMSApplication.Controllers.v1
                 return Ok(ex.Message);
             }
         }
-
-        public static bool VerifyHashedPassword(string hashedPassword, string password)
-        {
-            byte[] buffer4;
-            if (hashedPassword == null)
-            {
-                return false;
-            }
-            if (password == null)
-            {
-                throw new ArgumentNullException("password");
-            }
-            byte[] src = Convert.FromBase64String(hashedPassword);
-            if ((src.Length != 0x31) || (src[0] != 0))
-            {
-                return false;
-            }
-            byte[] dst = new byte[0x10];
-            Buffer.BlockCopy(src, 1, dst, 0, 0x10);
-            byte[] buffer3 = new byte[0x20];
-            Buffer.BlockCopy(src, 0x11, buffer3, 0, 0x20);
-            using (Rfc2898DeriveBytes bytes = new Rfc2898DeriveBytes(password, dst, 0x3e8))
-            {
-                buffer4 = bytes.GetBytes(0x20);
-            }
-            return ByteArraysEqual(buffer3, buffer4);
-        }
-
-        private static bool ByteArraysEqual(byte[] a1, byte[] a2)
-        {
-            if (a1.Length != a2.Length)
-                return false;
-
-            for (int i = 0; i < a1.Length; i++)
-                if (a1[i] != a2[i])
-                    return false;
-
-            return true;
-        }
-
     }
 }

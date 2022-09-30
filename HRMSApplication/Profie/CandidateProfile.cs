@@ -14,40 +14,40 @@ namespace HRMSApplication.Profie
                     opt => opt.MapFrom(src => src.cand_id)
                 )
                 .ForMember(
-                    dest => dest.FirstName,
+                    dest => dest.Cand_FirstName,
                     opt => opt.MapFrom(src => $"{src.cand_firstname}")
                 )
                 .ForMember(
-                    dest => dest.MiddleName,
+                    dest => dest.Cand_MiddleName,
                     opt => opt.MapFrom(src => $"{src.cand_middlename}")
                 )
                 .ForMember(
-                    dest => dest.LastName,
+                    dest => dest.Cand_LastName,
                     opt => opt.MapFrom(src => $"{src.cand_lastname}")
                 )
                 .ForMember(
-                    dest => dest.Rdate,
+                    dest => dest.Cand_Rdate,
                     opt => opt.MapFrom(src => $"{src.cand_rdate}")
                 )
                 .ForMember(
-                    dest => dest.Gender,
+                    dest => dest.Cand_Gender,
                     opt => opt.MapFrom(src => $"{src.cand_gender}")
                 )
                 .ForMember(
-                    dest => dest.Dob,
+                    dest => dest.Cand_Dob,
                     opt => opt.MapFrom(src => $"{src.cand_dob}")
                 )
                 .ForMember(
-                    dest => dest.Email,
+                    dest => dest.Cand_Email,
                     opt => opt.MapFrom(src => $"{src.cand_email}")
                 )
                 .ForMember(
-                    dest => dest.Mobile,
+                    dest => dest.Cand_Mobile,
                     opt => opt.MapFrom(src => $"{src.cand_mobile}")
                 )
 
                 .ForMember(
-                    dest => dest.Address,
+                    dest => dest.Cand_Address,
                     opt => opt.MapFrom(src => $"{src.cand_address}")
                 )
                  .ForMember(
@@ -59,5 +59,5 @@ namespace HRMSApplication.Profie
 
 
 
-        }
     }
+}

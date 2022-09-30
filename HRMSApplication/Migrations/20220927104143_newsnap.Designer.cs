@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace HRMSApplication.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220929062938_Hrms")]
-    partial class Hrms
+    [Migration("20220927104143_newsnap")]
+    partial class newsnap
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

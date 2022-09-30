@@ -1,0 +1,18 @@
+2022-09-29 09:39:04.3438 DEBUG init main
+2022-09-29 09:39:46.4671 INFO Calculate Day Attendance
+2022-09-29 09:41:00.7534 INFO Update Employee Punch Out Timings
+2022-09-29 09:47:22.1595 DEBUG init main
+2022-09-29 09:47:42.3015 INFO Calculate Day Attendance
+2022-09-29 09:47:50.8052 INFO Update Employee Punch Out Timings
+2022-09-29 09:57:22.1488 DEBUG init main
+2022-09-29 09:57:49.7091 INFO Calculate Day Attendance
+2022-09-29 09:57:58.6394 INFO Update Employee Punch Out Timings
+2022-09-29 09:59:52.0306 INFO Calculate Day Attendance
+2022-09-29 09:59:56.6574 INFO Update Employee Punch Out Timings
+2022-09-29 11:43:58.0475 DEBUG init main
+2022-09-29 11:45:09.4172 INFO Calculate Day Attendance
+2022-09-29 12:00:05.0898 DEBUG init main
+2022-09-29 12:01:05.8399 DEBUG init main
+2022-09-29 12:01:36.9812 INFO Get All Employees
+2022-09-29 12:01:38.0712 INFO get the All Employees
+2022-09-29 12:01:38.3404 INFO Get All Employees from repository

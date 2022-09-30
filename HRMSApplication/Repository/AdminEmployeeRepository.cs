@@ -107,7 +107,7 @@ namespace HRMSApplication.Repository
                 var str = empId;
                 conn.Open();
                 log.LogInfo("update the employee function");
-                int nor = conn.Execute("update Employees set empl_designation=@des,empl_mobile=@mb,empl_address=@adr  where empl_empid=@empid", new { empid = empId.empl_id, des = empId.empl_designation, mb = empId.empl_mobile, adr = empId.empl_address });
+                int nor = conn.Execute("update Employees set empl_designation=@des,empl_mobile=@mb,empl_address=@adr  where empl_id=@empid", new { empid = empId.empl_id, des = empId.empl_designation, mb = empId.empl_mobile, adr = empId.empl_address });
 
                 if (nor == 1)
                 {

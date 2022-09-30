@@ -1,0 +1,39 @@
+2022-09-27 07:04:16.9012 DEBUG init main
+2022-09-27 07:10:10.1346 DEBUG init main
+2022-09-27 07:11:48.9154 INFO Edit JobGrdHld
+2022-09-27 07:11:52.8280 INFO add new employee function
+2022-09-27 07:13:24.5391 INFO Edit JobGrdHld
+2022-09-27 07:15:02.5444 INFO add new employee function
+2022-09-27 07:15:25.1778 INFO Edit JobGrdHld
+2022-09-27 07:15:25.1778 INFO add new employee function
+2022-09-27 07:15:50.7278 INFO Edit JobGrdHld
+2022-09-27 07:15:59.7252 INFO add new employee function
+2022-09-27 07:17:40.0520 INFO Edit JobGrdHld
+2022-09-27 07:18:24.1449 INFO add new employee function
+2022-09-27 07:24:13.4693 DEBUG init main
+2022-09-27 07:27:07.0314 DEBUG init main
+2022-09-27 07:30:11.9539 DEBUG init main
+2022-09-27 07:34:36.2384 DEBUG init main
+2022-09-27 07:36:57.1872 DEBUG init main
+2022-09-27 10:09:35.9073 DEBUG init main
+2022-09-27 16:08:24.0428 DEBUG init main
+2022-09-27 16:11:40.1469 DEBUG init main
+2022-09-27 16:12:16.1757 DEBUG init main
+2022-09-27 16:13:15.2360 DEBUG init main
+2022-09-27 16:20:54.1375 DEBUG init main
+2022-09-27 16:22:01.2340 DEBUG init main
+2022-09-27 16:25:37.9670 INFO add new employee function
+2022-09-27 16:29:02.2706 INFO add new employee function
+2022-09-27 16:35:40.7199 DEBUG init main
+2022-09-27 17:00:29.3887 DEBUG init main
+2022-09-27 17:02:28.2339 DEBUG init main
+2022-09-27 17:08:30.0750 DEBUG init main
+2022-09-27 23:28:10.3758 DEBUG init main
+2022-09-27 23:31:39.2644 INFO Punch_In Timings
+2022-09-27 23:32:00.8983 INFO Update Employee Punch In Timings
+2022-09-27 23:32:44.2694 INFO Punch_In Timings
+2022-09-27 23:32:49.0580 INFO Update Employee Punch In Timings
+2022-09-27 23:37:32.7092 INFO Punch_Out Timings
+2022-09-27 23:37:50.0287 INFO Update Employee Punch Out Timings
+2022-09-27 23:39:14.6595 INFO Punch_Out Timings
+2022-09-27 23:39:14.6735 INFO Update Employee Punch Out Timings

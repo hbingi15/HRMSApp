@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿
+using AutoMapper;
 using HRMSApplication.Contracts;
 using HRMSApplication.Models.Entity;
 using HRMSApplication.Models.Resource;
@@ -28,7 +29,7 @@ namespace HRMSApplication.Controllers.V1
         {
             log.LogInfo("Get All Candidates");
          // return Ok(imap.Map<List<EOCandidateReource>>(ic.GetAllCandidateOfferL()));
-            return Ok(ic.GetAllCandidateOfferL());
+           return Ok(ic.GetAllCandidateOfferL());
 
         }
 
@@ -37,8 +38,13 @@ namespace HRMSApplication.Controllers.V1
         public IActionResult GetAllCandidates()
         {
             log.LogInfo("Get All Candidates");
+
+            return Ok(imap.Map<List<CandidateResource>>(ic.GetAllCandidates()));
+           // return Ok(ic.GetAllCandidates());
+
             // return Ok(imap.Map<List<CandidateReource>>(ic.GetAllCandidateOfferL()));
             return Ok(ic.GetAllCandidates());
+
 
         }
 

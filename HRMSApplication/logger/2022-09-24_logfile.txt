@@ -1,0 +1,24 @@
+2022-09-24 10:45:11.7213 DEBUG init main
+2022-09-24 10:46:11.3704 INFO Get All Candidates
+2022-09-24 10:46:12.2568 INFO get the All Candidates
+2022-09-24 10:46:14.0933 INFO Get All Candidate from repository
+2022-09-24 10:46:52.8386 INFO Get All Candidates
+2022-09-24 10:46:52.8409 INFO get the All Candidates
+2022-09-24 10:46:52.8409 INFO Get All Candidate offer letters from repository
+2022-09-24 10:48:43.2250 INFO Get All Candidates
+2022-09-24 10:48:43.2250 INFO get the All Candidates
+2022-09-24 10:48:43.2250 INFO Get All Candidate from repository
+2022-09-24 10:49:03.5088 DEBUG init main
+2022-09-24 10:49:24.2708 INFO Get All Candidates
+2022-09-24 10:49:24.3088 INFO get the All Candidates
+2022-09-24 10:49:24.6761 INFO Get All Candidate offer letters from repository
+2022-09-24 11:04:06.3596 DEBUG init main
+2022-09-24 11:04:19.3661 INFO Get All Candidates
+2022-09-24 11:04:19.4068 INFO get the All Candidates
+2022-09-24 11:04:19.7080 INFO Get All Candidate offer letters from repository
+2022-09-24 11:24:25.0072 DEBUG init main
+2022-09-24 11:24:49.0489 INFO Get All Candidates
+2022-09-24 11:25:51.3896 DEBUG init main
+2022-09-24 11:26:11.8702 INFO Get All Candidates
+2022-09-24 11:26:19.6013 INFO get the All Candidates
+2022-09-24 11:26:23.0729 INFO Get All Candidate from repository

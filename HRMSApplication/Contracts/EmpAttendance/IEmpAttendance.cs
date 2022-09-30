@@ -1,0 +1,12 @@
+﻿using HRMSApplication.Models.Entity.EmpAttendance;
+
+namespace HRMSApplication.Contracts.EmpAttendance
+{
+    public interface IEmpAttendance
+    {
+        public bool EmployeePunchIn(PunchIn pi);
+        public bool EmployeePunchOut(PunchOut po);
+        public int CalculateDayAttendance(DayAttendanceEntity da);
+        public int CalculateMonthAttendance(DayAttendanceEntity da);
+    }
+}

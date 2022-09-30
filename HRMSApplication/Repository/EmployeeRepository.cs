@@ -42,7 +42,7 @@ namespace HRMSApplication.Repository
         //method to add new employee
         public bool  AddEmployee(EmployeeEntity e)
         {
-            string query = "insert into Employees(empl_firstname, empl_lastname, empl_surname, empl_empid,empl_joindate, empl_dob, empl_designation, empl_offemail, empl_pemail,empl_mobile, empl_altemail, empl_bloodgroup, empl_gender,empl_address, empl_fathername) Values(@fnm,@lnm, @snm,@id,@jdt,@dob,@des,@ofmail,@pmail,@mbl,@amail,@bgrp,@gn,@ads,@frnm)";
+            string query = "insert into Employees(empl_firstname, empl_lastname, empl_surname,empl_joindate, empl_dob, empl_designation, empl_offemail, empl_pemail,empl_mobile, empl_altemail, empl_bloodgroup, empl_gender,empl_address, empl_fathername) Values(@fnm,@lnm, @snm,@jdt,@dob,@des,@ofmail,@pmail,@mbl,@amail,@bgrp,@gn,@ads,@frnm)";
             try
             {
                 using (var conn = edc.CreateConnection())
@@ -93,7 +93,7 @@ namespace HRMSApplication.Repository
                 var str = empId;
                 conn.Open();
                 log.LogInfo("update the employee function");
-                int nor = conn.Execute("update Employees set empl_mobile=@mb,empl_address=@adr  where empl_id=@empid", new {empid =empId.emp_id,mb=empId.empl_mobile,adr=empId.empl_address});
+                int nor = conn.Execute("update Employees set empl_mobile=@mb,empl_address=@adr  where empl_id=@empid", new {empid =empId.empl_id,mb=empId.empl_mobile,adr=empId.empl_address});
 
                 if ( nor==1)
                 {

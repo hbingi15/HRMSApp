@@ -1,0 +1,82 @@
+2022-09-28 09:34:27.3420 DEBUG init main
+2022-09-28 09:53:09.8897 INFO Punch_In Timings
+2022-09-28 09:53:12.0541 INFO Update Employee Punch In Timings
+2022-09-28 09:53:53.1580 INFO Punch_Out Timings
+2022-09-28 09:53:53.1580 INFO Update Employee Punch Out Timings
+2022-09-28 10:17:18.5046 DEBUG init main
+2022-09-28 10:20:02.5334 DEBUG init main
+2022-09-28 10:22:34.3254 DEBUG init main
+2022-09-28 10:23:30.5476 DEBUG init main
+2022-09-28 10:24:12.8280 INFO Calculate Day Attendance
+2022-09-28 10:24:57.8164 INFO Update Employee Punch Out Timings
+2022-09-28 10:28:23.9261 INFO Punch_In Timings
+2022-09-28 10:28:23.9261 INFO Update Employee Punch In Timings
+2022-09-28 10:29:01.2324 INFO Punch_Out Timings
+2022-09-28 10:29:01.2324 INFO Update Employee Punch Out Timings
+2022-09-28 10:29:17.5872 INFO Calculate Day Attendance
+2022-09-28 10:29:17.5872 INFO Update Employee Punch Out Timings
+2022-09-28 10:31:38.9488 INFO Punch_In Timings
+2022-09-28 10:31:39.0392 INFO Update Employee Punch In Timings
+2022-09-28 10:32:12.7085 INFO Punch_Out Timings
+2022-09-28 10:32:12.7085 INFO Update Employee Punch Out Timings
+2022-09-28 10:32:38.2752 INFO Punch_Out Timings
+2022-09-28 10:32:38.2752 INFO Update Employee Punch Out Timings
+2022-09-28 11:46:48.5916 DEBUG init main
+2022-09-28 11:58:20.6593 DEBUG init main
+2022-09-28 12:09:42.4498 DEBUG init main
+2022-09-28 12:15:31.1395 INFO Get All Inductions
+2022-09-28 12:15:31.5842 INFO get the All Inductions
+2022-09-28 12:15:31.5842 INFO Get inductions
+2022-09-28 12:37:56.3576 DEBUG init main
+2022-09-28 12:39:05.7311 DEBUG init main
+2022-09-28 13:01:43.0584 DEBUG init main
+2022-09-28 14:10:56.7614 DEBUG init main
+2022-09-28 14:12:27.9844 INFO Punch_In Timings
+2022-09-28 14:12:29.6132 INFO Update Employee Punch In Timings
+2022-09-28 14:13:43.5411 INFO Get All Employees
+2022-09-28 14:13:52.6276 INFO get the All Employees
+2022-09-28 14:14:00.7922 INFO Get All Employees from repository
+2022-09-28 14:15:58.1474 INFO Get All Employees
+2022-09-28 14:16:04.0283 INFO get the All Employees
+2022-09-28 14:16:06.2718 INFO Get All Employees from repository
+2022-09-28 14:17:33.6656 INFO Get All Employees
+2022-09-28 14:17:33.6656 INFO get the All Employees
+2022-09-28 14:17:33.6656 INFO Get All Employees from repository
+2022-09-28 14:18:55.6737 INFO Punch_In Timings
+2022-09-28 14:18:55.8102 INFO Update Employee Punch In Timings
+2022-09-28 14:20:43.7989 INFO Punch_Out Timings
+2022-09-28 14:20:50.0099 INFO Update Employee Punch Out Timings
+2022-09-28 14:33:30.3921 DEBUG init main
+2022-09-28 15:27:32.2470 DEBUG init main
+2022-09-28 15:29:52.5522 INFO Punch_In Timings
+2022-09-28 15:29:59.4902 INFO Update Employee Punch In Timings
+2022-09-28 15:30:28.9491 INFO Punch_In Timings
+2022-09-28 15:30:31.5197 INFO Update Employee Punch In Timings
+2022-09-28 15:30:44.4174 DEBUG init main
+2022-09-28 15:32:39.1323 INFO Punch_In Timings
+2022-09-28 15:32:42.6471 INFO Update Employee Punch In Timings
+2022-09-28 15:33:49.6881 INFO Punch_Out Timings
+2022-09-28 15:33:54.0340 INFO Update Employee Punch Out Timings
+2022-09-28 16:09:37.0167 DEBUG init main
+2022-09-28 16:17:03.7304 INFO Punch_In Timings
+2022-09-28 16:17:06.9475 INFO Update Employee Punch In Timings
+2022-09-28 16:21:17.8520 INFO Punch_Out Timings
+2022-09-28 16:21:20.2103 INFO Update Employee Punch Out Timings
+2022-09-28 16:22:19.8338 INFO Punch_In Timings
+2022-09-28 16:22:24.7525 INFO Update Employee Punch In Timings
+2022-09-28 16:23:51.7411 INFO Punch_Out Timings
+2022-09-28 16:23:54.4316 INFO Update Employee Punch Out Timings
+2022-09-28 16:26:07.1728 INFO Calculate Day Attendance
+2022-09-28 16:26:40.5833 INFO Update Employee Punch Out Timings
+2022-09-28 16:33:17.9578 DEBUG init main
+2022-09-28 16:33:51.7458 INFO Calculate Day Attendance
+2022-09-28 16:33:56.9746 INFO Update Employee Punch Out Timings
+2022-09-28 16:38:22.1721 INFO Calculate Day Attendance
+2022-09-28 16:38:26.1460 INFO Update Employee Punch Out Timings
+2022-09-28 16:42:45.6504 INFO Punch_In Timings
+2022-09-28 16:44:24.3351 DEBUG init main
+2022-09-28 16:45:10.1389 INFO Punch_In Timings
+2022-09-28 16:45:17.1426 INFO Update Employee Punch In Timings
+2022-09-28 16:46:40.8769 INFO Punch_In Timings
+2022-09-28 16:46:40.8769 INFO Update Employee Punch In Timings
+2022-09-28 19:46:35.9450 DEBUG init main

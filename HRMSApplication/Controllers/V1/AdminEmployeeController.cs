@@ -2,15 +2,18 @@
 using HRMSApplication.Contracts;
 /*using HRMSApplication.EntityModels;*/
 using HRMSApplication.Models.Entity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HRMSApplication.Controllers.AdminEmployeeController
 {
+   
+    //[Authorize(Roles ="Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class AdminEmployeeController : ControllerBase
-    {
+    { 
         // define the mapper
        
         ILoggerManager log = null;
@@ -44,11 +47,6 @@ namespace HRMSApplication.Controllers.AdminEmployeeController
 
         }
 
-        
-        
-
-
-
         //method to update Employee
         [HttpPut]
         [Route("/[Controller]/V1/UpdateEmployee")]
@@ -58,7 +56,6 @@ namespace HRMSApplication.Controllers.AdminEmployeeController
             return Ok(iemp.EditEmployee(empId));
 
         }
-
 
         //method to delete Employee
         [HttpPatch]
@@ -70,8 +67,6 @@ namespace HRMSApplication.Controllers.AdminEmployeeController
             return Ok(iemp.DeleteEmployee(empId));
 
         }
-
-
         
     }
 }

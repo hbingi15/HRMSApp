@@ -1,0 +1,43 @@
+2022-09-30 19:01:38.6068 DEBUG init main
+2022-09-30 19:02:24.6655 INFO Get All Employees
+2022-09-30 19:02:25.1088 INFO get the All Employees
+2022-09-30 19:02:25.1088 INFO Get All Employees from repository
+2022-09-30 19:02:48.9410 INFO Calculate Month Attendance
+2022-09-30 19:02:49.2370 INFO Update Employee Punch Out Timings
+2022-09-30 19:02:49.4593 INFO Update Employee Punch Out Timings
+2022-09-30 19:02:49.4593 INFO Update Employee Punch Out Timings
+2022-09-30 19:02:49.4593 INFO Update Employee Punch Out Timings
+2022-09-30 19:02:49.4593 INFO Update Employee Punch Out Timings
+2022-09-30 19:02:49.4593 INFO Update Employee Punch Out Timings
+2022-09-30 19:02:49.4593 INFO Update Employee Punch Out Timings
+2022-09-30 19:02:49.4593 INFO Update Employee Punch Out Timings
+2022-09-30 19:02:49.4593 INFO Update Employee Punch Out Timings
+2022-09-30 19:02:49.4593 INFO Update Employee Punch Out Timings
+2022-09-30 19:02:49.4593 INFO Update Employee Punch Out Timings
+2022-09-30 19:02:49.4593 INFO Update Employee Punch Out Timings
+2022-09-30 19:02:49.4593 INFO Update Employee Punch Out Timings
+2022-09-30 19:02:49.4593 INFO Update Employee Punch Out Timings
+2022-09-30 19:02:49.4730 INFO Update Employee Punch Out Timings
+2022-09-30 19:02:49.4730 INFO Update Employee Punch Out Timings
+2022-09-30 19:02:49.4730 INFO Update Employee Punch Out Timings
+2022-09-30 19:02:49.4730 INFO Update Employee Punch Out Timings
+2022-09-30 19:02:49.4730 INFO Update Employee Punch Out Timings
+2022-09-30 19:02:49.4730 INFO Update Employee Punch Out Timings
+2022-09-30 19:02:49.4730 INFO Update Employee Punch Out Timings
+2022-09-30 19:02:49.4730 INFO Update Employee Punch Out Timings
+2022-09-30 19:02:49.4730 INFO Update Employee Punch Out Timings
+2022-09-30 19:02:49.4730 INFO Update Employee Punch Out Timings
+2022-09-30 19:02:49.4730 INFO Update Employee Punch Out Timings
+2022-09-30 19:02:49.4730 INFO Update Employee Punch Out Timings
+2022-09-30 19:02:49.4730 INFO Update Employee Punch Out Timings
+2022-09-30 19:02:49.4730 INFO Update Employee Punch Out Timings
+2022-09-30 19:02:49.4730 INFO Update Employee Punch Out Timings
+2022-09-30 19:02:57.6955 INFO Get All Employees
+2022-09-30 19:02:57.6955 INFO get the All Employees
+2022-09-30 19:02:57.6955 INFO Get All employmentoffers from repository
+2022-09-30 19:03:05.3078 INFO Get All Employees
+2022-09-30 19:03:05.3078 INFO get the All Holydays
+2022-09-30 19:03:05.3078 INFO Get All Holydays from repository
+2022-09-30 19:03:14.5938 INFO Get All Inductions
+2022-09-30 19:03:14.5938 INFO get the All Inductions
+2022-09-30 19:03:14.5938 INFO Get inductions

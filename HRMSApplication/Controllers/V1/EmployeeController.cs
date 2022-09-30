@@ -5,9 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
 using HRMSApplication.Models.Resource;
 using HRMSApplication.Profie;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HRMSApplication.Controllers.EmployeeController
 {
+    [Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class EmployeeController : ControllerBase
@@ -32,6 +34,7 @@ namespace HRMSApplication.Controllers.EmployeeController
         {
             log.LogInfo("Get All Employees");
             return  Ok(imap.Map<List<EmployeeResource>>(iemp.GetAllEmployees()));
+
         }
 
 
