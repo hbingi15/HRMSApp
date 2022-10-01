@@ -39,6 +39,10 @@ builder.Services.AddSingleton<IInductionRepo, InductionRepository>();
 builder.Services.AddSingleton<IEmployOfferLetter, EmployeOfferLetterRepo>();
 builder.Services.AddSingleton<IHolyday, HolydayRepository>();
 builder.Services.AddSingleton<IJGL, JobGradeLRepo>();
+builder.Services.AddSingleton<IEmployeeOfferDocuments, EmployeeOfferDocumentRepo>();
+builder.Services.AddSingleton<IInductionDocumentTypes, InductionDocumentTypesRepo>();
+builder.Services.AddSingleton<IEmpLeaveRequest, EmpLeaveRequestRepo>();
+builder.Services.AddSingleton<IEmpOptedLeaves, EmpOptedLeavesRepo>();
 
 
 
