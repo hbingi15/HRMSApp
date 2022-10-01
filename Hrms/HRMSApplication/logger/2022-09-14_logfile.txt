@@ -1,5 +1,0 @@
-2022-09-14 14:36:26.6566 DEBUG init main
-2022-09-14 14:36:50.9536 DEBUG init main
-2022-09-14 14:37:20.9797 INFO Get All PurchaseOrders
-2022-09-14 14:37:21.4033 INFO get the All Employees
-2022-09-14 14:37:22.6438 INFO Get All PurchaseOrders from repository
