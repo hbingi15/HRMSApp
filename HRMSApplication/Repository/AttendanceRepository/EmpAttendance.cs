@@ -162,6 +162,7 @@ namespace HRMSApplication.Repository.AttendanceRepository
                 using (var conn = edc.CreateConnection())
                 {
                     conn.Open();
+                    log.LogInfo("Calculate Monthly Attendance of Particular Employee");
                     stdt = conn.ExecuteScalar<DateTime>(query1, new {@gdt=da.day});
                     endt = conn.ExecuteScalar<DateTime>(query2, new { @gdt = da.day });
                     NoOfHolidays = conn.ExecuteScalar<int>(query3, new { @st = stdt,@et=endt });
@@ -174,7 +175,8 @@ namespace HRMSApplication.Repository.AttendanceRepository
                         mon_atd[i] = datattend;
                         i++;
                     }
-                    for(int at = 0; at < mon_atd.Length; at++)
+                    log.LogInfo("Calculate Actual Attended days in a given month");
+                    for (int at = 0; at < mon_atd.Length; at++)
                     {
                         if (mon_atd[at] != 0)
                         {
@@ -182,6 +184,7 @@ namespace HRMSApplication.Repository.AttendanceRepository
                         }
                     }
                 }
+                //
                 ma.NoOfDays = i+1;
                 ma.NoOfHolidays = NoOfHolidays;
                 ma.Actual_Attended_days = actual_attendance;
