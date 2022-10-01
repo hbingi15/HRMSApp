@@ -81,14 +81,14 @@ namespace HRMSApplication.Repository
             }
         }
         // used for deleting employee
-        public bool DeleteEmployee(string empId)
+        public bool DeleteEmployee(int empId)
         {
             using (var conn = edc.CreateConnection())
             {
-                var str = empId;
+               // var str = empId;
                 conn.Open();
                 log.LogInfo("deleting employee function");
-                int nor = conn.Execute("update Employees set Employee_status='Not Active' where empl_empid=@eid", new { eid = str });
+                int nor = conn.Execute("update Employees set empl_status='Not Active' where empl_id=@eid", new { eid = empId });
                 if (nor == 1)
                 {
                     return true;
@@ -104,10 +104,10 @@ namespace HRMSApplication.Repository
         {
             using (var conn = edc.CreateConnection())
             {
-                var str = empId;
+               // var str = empId;
                 conn.Open();
                 log.LogInfo("update the employee function");
-                int nor = conn.Execute("update Employees set empl_designation=@des,empl_mobile=@mb,empl_address=@adr  where empl_id=@empid", new { empid = empId.empl_id, des = empId.empl_designation, mb = empId.empl_mobile, adr = empId.empl_address });
+                int nor = conn.Execute("update Employees set empl_designation=@des,empl_mobile=@mb,empl_address=@adr  where empl_id=@empid", new { @empid = empId.empl_id, des = empId.empl_designation, mb = empId.empl_mobile, adr = empId.empl_address });
 
                 if (nor == 1)
                 {

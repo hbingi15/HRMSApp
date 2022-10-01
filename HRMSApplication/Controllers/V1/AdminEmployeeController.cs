@@ -60,7 +60,7 @@ namespace HRMSApplication.Controllers.AdminEmployeeController
         //method to delete Employee
         [HttpPatch]
         [Route("/[Controller]/V1/DeleteEmployees")]
-        public IActionResult DeleteEmployee([FromBody] string empId)
+        public IActionResult DeleteEmployee([FromBody] int empId)
         {
             log.LogInfo("Existing Employee is Delete ");
 
