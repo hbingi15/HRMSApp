@@ -41,3 +41,95 @@
 2022-09-30 19:03:14.5938 INFO Get All Inductions
 2022-09-30 19:03:14.5938 INFO get the All Inductions
 2022-09-30 19:03:14.5938 INFO Get inductions
+2022-09-30 21:46:15.3632 DEBUG init main
+2022-09-30 21:47:40.5332 INFO Calculate Month Attendance
+2022-09-30 21:47:43.1976 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:47:43.3512 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:47:43.3512 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:47:43.3642 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:47:43.3642 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:47:43.3642 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:47:43.3642 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:47:43.3642 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:47:43.3642 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:47:43.3642 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:47:43.3642 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:47:43.3642 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:47:43.3642 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:47:43.3642 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:47:43.3642 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:47:43.3642 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:47:43.3642 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:47:43.3795 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:47:43.3795 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:47:43.3795 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:47:43.3795 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:47:43.3795 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:47:43.3795 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:47:43.3795 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:47:43.3795 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:47:43.3795 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:47:43.3795 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:47:43.3795 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:47:43.3795 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:48:11.5918 INFO Calculate Month Attendance
+2022-09-30 21:48:43.8235 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:48:43.8359 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:48:43.8359 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:48:43.8359 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:48:43.8359 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:48:43.8359 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:48:43.8359 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:48:43.8359 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:48:43.8482 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:48:43.8482 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:48:43.8482 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:48:43.8482 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:48:43.8482 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:48:43.8482 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:48:43.8482 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:48:43.8482 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:48:43.8482 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:48:43.8482 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:48:43.8482 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:48:43.8482 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:48:43.8482 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:48:43.8482 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:48:43.8482 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:48:43.8482 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:48:43.8482 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:48:43.8482 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:48:43.8482 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:48:43.8482 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 21:48:43.8645 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 23:58:43.3684 DEBUG init main
+2022-09-30 23:59:28.0221 INFO Calculate Month Attendance
+2022-09-30 23:59:44.4104 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 23:59:44.5602 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 23:59:44.5602 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 23:59:44.5602 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 23:59:44.5602 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 23:59:44.5667 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 23:59:44.5667 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 23:59:44.5667 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 23:59:44.5667 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 23:59:44.5667 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 23:59:44.5667 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 23:59:44.5667 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 23:59:44.5667 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 23:59:44.5667 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 23:59:44.5667 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 23:59:44.5667 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 23:59:44.5667 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 23:59:44.5667 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 23:59:44.5667 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 23:59:44.5667 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 23:59:44.5667 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 23:59:44.5667 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 23:59:44.5667 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 23:59:44.5667 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 23:59:44.5837 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 23:59:44.5837 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 23:59:44.5837 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 23:59:44.5837 INFO Calculate Monthly Attendance of Particular Employee
+2022-09-30 23:59:44.5837 INFO Calculate Monthly Attendance of Particular Employee

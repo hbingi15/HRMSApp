@@ -7,6 +7,6 @@ namespace HRMSApplication.Contracts.EmpAttendance
         public bool EmployeePunchIn(PunchIn pi);
         public bool EmployeePunchOut(PunchOut po);
         public int CalculateDayAttendance(DayAttendanceEntity da);
-        public int CalculateMonthAttendance(DayAttendanceEntity da);
+        public MonthAttendanceEntity CalculateMonthAttendance(DayAttendanceEntity da);
     }
 }

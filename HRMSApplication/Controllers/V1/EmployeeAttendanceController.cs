@@ -25,6 +25,7 @@ namespace HRMSApplication.Controllers.V1
             log.LogInfo("Punch_In Timings");
             return Ok(iea.EmployeePunchIn(pi));
         }
+
         //Update Employee Punch Out Timings
         [HttpPut]
         [Route("/[Controller]/V1/EmployeePunchOut")]
@@ -33,7 +34,8 @@ namespace HRMSApplication.Controllers.V1
             log.LogInfo("Punch_Out Timings");
             return Ok(iea.EmployeePunchOut(po));
         }
-        //Calculate Day Attendance
+
+        //Calculate Day Attendance of given Employee
         [HttpPost]
         [Route("/[Controller]/V1/DayAttendance")]
         public IActionResult CalculateDayAttendance([FromBody] DayAttendanceEntity da)
@@ -41,7 +43,8 @@ namespace HRMSApplication.Controllers.V1
             log.LogInfo("Calculate Day Attendance");
             return Ok(iea.CalculateDayAttendance(da));
         }
-        //Calculate Day Attendance
+
+        //Calculate Month Attendance  of given Employee
         [HttpPost]
         [Route("/[Controller]/V1/MonthAttendance")]
         public IActionResult CalculateMonthAttendance([FromBody] DayAttendanceEntity da)
