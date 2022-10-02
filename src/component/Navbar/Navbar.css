@@ -1,0 +1,36 @@
+.Navbar{
+    display: flex;
+    border: 1px solid red;
+    text-align: center;
+  padding-top: 10px;
+    color: white;
+    background-color: blue;
+    justify-content: space-between;
+    height: 45px;
+}
+.Human_text{
+padding: 20px;
+margin-left: 400px;
+font-size:x-large
+
+
+}
+.Login_Div{
+    margin-top: 7px;
+    /* border: 1px solid red; */
+    height: 60%;
+
+}
+.Login_Text{
+margin-top: 40%px;
+padding-top: 20px;
+   margin-right: 30px; 
+    /* border: 1px solid red; */
+  
+
+}
+.selectbox{
+    background-color: rgb(92, 90, 88);
+    width: 300px;
+    height: 580px;
+}
