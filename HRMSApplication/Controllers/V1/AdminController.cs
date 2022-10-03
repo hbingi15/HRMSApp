@@ -1,6 +1,9 @@
-﻿using HRMSApplication.Contracts;
+﻿using Dapper;
+using HRMSApplication.Contracts;
+using HRMSApplication.DapperORM;
 using HRMSApplication.Identity;
 using HRMSApplication.Models;
+using HRMSApplication.Models.Entity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -23,7 +26,8 @@ namespace HRMSApplication.Controllers.v1
         IAuthent ia;
         private RoleManager<IdentityRole> roleManager;
         IAuthent iau;
-        public AdminController(ILoggerManager log, UserManager<ApplicationUser> umg, IPasswordHasher<ApplicationUser> passwordHasher, IUser iu, IAuthent ia, RoleManager<IdentityRole> roleManager,IAuthent iau)
+        EmployeeDapperContext edc;
+        public AdminController(ILoggerManager log, UserManager<ApplicationUser> umg, IPasswordHasher<ApplicationUser> passwordHasher, IUser iu, IAuthent ia, RoleManager<IdentityRole> roleManager,IAuthent iau,EmployeeDapperContext edc)
         {
             this.log = log;
             this._userManager = umg;
@@ -32,12 +36,8 @@ namespace HRMSApplication.Controllers.v1
             this.ia = ia;
             this.roleManager = roleManager;
             this.iau=iau;
+            this.edc=edc;
         }
-        //[HttpGet]
-        //public async Task<IActionResult> Index()
-        //{
-        //    return Ok("Action perform successfully!");
-        //}
 
         //-----------Create User in AspnetUsers and User Id insert into Employee Table---------
         [HttpPost]
@@ -153,30 +153,22 @@ namespace HRMSApplication.Controllers.v1
             {
                 
                 var user = _userManager.Users.SingleOrDefault(x => x.UserName == al.UserName);
-                var roleNames = await _userManager.GetRolesAsync(user);
+                //var roleNames = await _userManager.GetRolesAsync(user);
+                //var userrole = roleNames[0];
+                ////generate token
+                //var token = iau.GenerateToken(user.UserName, userrole);
 
-                //var roles = roleManager.Roles.ToList();
-
-
-                //var user = await userManager.FindByEmailAsync(loginModel.Email);
-
-                //var roleNames = await userManager.GetRolesAsync(user);
-
-                var userrole = roleNames[0];
-                //generate token
-                var token = iau.GenerateToken(user.UserName, userrole);
-               
+                IEnumerable<EmployeeEntity> employees = null;
 
                 if (user != null && await _userManager.CheckPasswordAsync(user, al.Password))
                 {
-                     
-                    //var token = jwtTokenManager.GenerateToken(user.UserName);
-                    // return Ok(token);
-                    
-                    //var rolename= roleManager.Roles.SingleOrDefault(x=>x.Id == roles[0].Id);
-                    //var role = await roleManager.FindByNameAsync(rolename);
-                    //return Ok(user.UserName + " Login Successfully");
-                    return Ok(token);
+                    var query = "select *from Employees where userid=@eid";
+                    using (var conn = edc.CreateConnection())
+                    {
+                        log.LogInfo("Get All Employees from repository");
+                        employees = (List<EmployeeEntity>)conn.Query<EmployeeEntity>(query, new {@eid=user.Id});
+                        return Ok(employees.ToList());
+                    }
                 }
                 else
                 {
