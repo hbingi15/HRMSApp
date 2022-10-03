@@ -27,16 +27,22 @@ namespace HRMSApplication.Models
 
         [Required]
         public string  PersonalEmail{ get; set; }
+        public string AltEmail { get; set; }
+
+        [Required]
+        public string Password { get; set; }
 
         public string Address { get; set; }
         public string FatherName { get; set; }
         public string Gender { get; set; }
 
         [Required]
-        public string Password { get; set; }
-
-        [Required]
         public string PhoneNumber { get; set; }
+        public string BloodGroup { get; set; }
+        public int Rmanager_Id { get; set; }
+        public int HR_Id { get; set; }
+        public string JobGrade_Id { get; set; }
+        public string OffEmail { get; set; }
 
     }
 }

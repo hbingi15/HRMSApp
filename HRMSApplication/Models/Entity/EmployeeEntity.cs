@@ -27,8 +27,6 @@
         public string password { get; set; }
         
         
-
-
     }
 
 }
