@@ -175,7 +175,6 @@ namespace HRMSApplication.Controllers.v1
                     return Ok("Given credentails are not valid");
                 }
 
-
             }
             catch (Exception ex)
             {
