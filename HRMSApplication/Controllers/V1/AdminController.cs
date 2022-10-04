@@ -27,7 +27,7 @@ namespace HRMSApplication.Controllers.v1
         private RoleManager<IdentityRole> roleManager;
         IAuthent iau;
         EmployeeDapperContext edc;
-        public AdminController(ILoggerManager log, UserManager<ApplicationUser> umg, IPasswordHasher<ApplicationUser> passwordHasher, IUser iu, IAuthent ia, RoleManager<IdentityRole> roleManager,IAuthent iau,EmployeeDapperContext edc)
+        public AdminController(ILoggerManager log, UserManager<ApplicationUser> umg, IPasswordHasher<ApplicationUser> passwordHasher, IUser iu, IAuthent ia, RoleManager<IdentityRole> roleManager, IAuthent iau, EmployeeDapperContext edc)
         {
             this.log = log;
             this._userManager = umg;
@@ -35,8 +35,8 @@ namespace HRMSApplication.Controllers.v1
             this.iu = iu;
             this.ia = ia;
             this.roleManager = roleManager;
-            this.iau=iau;
-            this.edc=edc;
+            this.iau = iau;
+            this.edc = edc;
         }
 
         //-----------Create User in AspnetUsers and User Id insert into Employee Table---------
@@ -57,7 +57,7 @@ namespace HRMSApplication.Controllers.v1
                 //appuser.PasswordHash = BCrypt.Net.BCrypt.HashPassword(u.Password,salt);
 
                 //---------------Assign Direct password into PasswordHash
-               
+
                 //appuser.PasswordHash = u.Password;
 
                 //   appuser.Pa
@@ -95,7 +95,7 @@ namespace HRMSApplication.Controllers.v1
         }
 
 
-        
+
         //---------------------Get All Users---------------------------
         // [AllowAnonymous]
         [HttpGet]
@@ -151,7 +151,7 @@ namespace HRMSApplication.Controllers.v1
         {
             try
             {
-                
+
                 var user = _userManager.Users.SingleOrDefault(x => x.UserName == al.UserName);
                 //var roleNames = await _userManager.GetRolesAsync(user);
                 //var userrole = roleNames[0];
@@ -166,7 +166,7 @@ namespace HRMSApplication.Controllers.v1
                     using (var conn = edc.CreateConnection())
                     {
                         log.LogInfo("Get All Employees from repository");
-                        employees = (List<EmployeeEntity>)conn.Query<EmployeeEntity>(query, new {@eid=user.Id});
+                        employees = (List<EmployeeEntity>)conn.Query<EmployeeEntity>(query, new { @eid = user.Id });
                         return Ok(employees.ToList());
                     }
                 }
@@ -175,6 +175,33 @@ namespace HRMSApplication.Controllers.v1
                     return Ok("Given credentails are not valid");
                 }
 
+            }
+            catch (Exception ex)
+            {
+                return Ok(ex.Message);
+            }
+        }
+
+        //----------Change Password---------
+        [HttpPost]
+        [Route("User/ChangePassword")]
+        public async Task<IActionResult> ChangePassword([FromForm] ChangePassword cp)
+        {
+            try
+            {
+                var user = _userManager.Users.SingleOrDefault(x => x.UserName == cp.UserName);
+
+                //IdentityResult result = await _userManager.CreateAsync(user,cp.NewPassword);
+                //user.PasswordHash = cp.NewPassword;
+                IdentityResult result = await _userManager.ChangePasswordAsync(user,cp.OldPassword, cp.NewPassword);
+                if (result.Succeeded)
+                {
+                    return Ok("Password changed successfully");
+                }
+                else
+                {
+                    return BadRequest();
+                }
             }
             catch (Exception ex)
             {
