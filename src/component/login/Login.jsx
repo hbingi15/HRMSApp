@@ -21,8 +21,8 @@ function Login() {
   const navigate = useNavigate();
 
   const init = {
-    email: "",
-    password: "",
+    UserName: "",
+    Password: "",
   };
   const [user, setUser] = useState(init);
 
@@ -33,9 +33,9 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { email, password } = user;
+    const { UserName, Password } = user;
 
-    fetch("http://localhost:5000/user/login", {
+    fetch("http://localhost:5028/User/Login", {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -44,9 +44,9 @@ function Login() {
         "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({
-        email,
+        UserName,
 
-        password,
+        Password,
       }),
     })
       .then((res) => res.json())
@@ -79,17 +79,17 @@ function Login() {
           <Grid item xs={12}>
             <TextField
               onChange={handleChange}
-              name="email"
-              value={user.email}
-              label={"Email"}
+              name="UserName"
+              value={user.UserName}
+              label={"UserName"}
             />
           </Grid>
           <Grid item xs={12}>
             <TextField
               onChange={handleChange}
-              name="password"
-              value={user.password}
-              type="password"
+              name="Password"
+              value={user.Password}
+              type="Password"
               label={"Password"}
             />
           </Grid>
@@ -111,7 +111,7 @@ function Login() {
           Login
         </Button>
         <div style={{ marginTop: "35px" }}>
-          <Link to="forgot-password" style={{ textDecoration: "none" }}>
+          <Link to="forgot-Password" style={{ textDecoration: "none" }}>
             <Button>Forgot Password</Button>
           </Link>
         </div>

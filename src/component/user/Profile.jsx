@@ -154,6 +154,26 @@ const Profile = () => {
         </Grid>
         <Grid item xs={6}>
           <TextField
+            label={"Address"}
+            name="addr"
+            value={userDataInput?.addr}
+            onChange={handleChange}
+
+            // disabled={!edit}
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <TextField
+            label={"Address"}
+            name="addr"
+            value={userDataInput?.addr}
+            onChange={handleChange}
+
+            // disabled={!edit}
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <TextField
             label={"Password"}
             name="password"
             type="password"
