@@ -189,6 +189,10 @@ empl_photo,
 
   }
 
+  function handleBack(){
+    navigate("/employeeData")
+
+  }
   return (
     <div>
       <form>
@@ -284,6 +288,7 @@ empl_photo,
         </Grid>
       </form>
       {status ? <Button variant="contained" onClick={handleUpdate}>UPDATE</Button> : <Button variant="contained" onClick={handleSubmit}>ADD</Button>}
+      <Button sx={{marginLeft:"20px"}} variant="contained" onClick={handleBack}>Back</Button>
 
     </div>
   )

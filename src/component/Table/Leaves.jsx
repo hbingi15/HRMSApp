@@ -1,3 +1,7 @@
+
+
+
+
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { styled } from '@mui/material/styles';
@@ -8,13 +12,14 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-
-import { Button, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
-import { Link } from 'react-router-dom';
+// import EditIcon from '@mui/icons-material/Edit';
+import { Button, FormControl, InputLabel, MenuItem, Select, TablePagination } from '@mui/material';
+import { Link, useNavigate } from 'react-router-dom';
 import LeavesDilogbox from '../dialogueBox/LeavesDilogbox';
-import Holiday from './Holiday';
-
-
+import AddIcon from '@mui/icons-material/Add';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+// import { changeStatusOfHolidayForm, editleaveData } from '../redux/action';
+import { useDispatch } from 'react-redux';
 
 
 
@@ -41,13 +46,25 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 
 function Leaves() {
-  const [empData, setEmpData] = useState([])
+  const [leaveData, setLeaveData] = useState([])
   const [singleData, setSingleData] = useState([])
   const [open, setOpen] = React.useState(false);
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [page, setPage] = React.useState(0);
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate()
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
   useEffect(() => {
-    axios.get("/leave")
-      .then((res) => setEmpData(res?.data?.leaveData))
+    axios.get("http://localhost:5028/EmpLeaveRequest/V1/AllEmployeeRequest")
+      .then((res) => setLeaveData(res?.data))
   }, [])
 
   const handleClick = (data) => {
@@ -58,103 +75,92 @@ function Leaves() {
   const handleClose = () => {
     setOpen(false);
   };
-  console.log(empData)
+
+
+ 
+  function handleAdd() {
+    // dispatch(changeStatusOfLeaveForm({status:false}))
+    navigate("/addLeave")
+
+  }
+
+
   return (
-    <div style={{ display: "flex", width: "100%" }}>
-      {/* this is sidebar */}
-
-      <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
 
 
-        <Paper sx={{ minWidth: 240, height: 580, textAlign: "center" }} elevation={4}>
-          <FormControl sx={{ width: "180px", marginTop: "20px", }}>
-            <InputLabel id="demo-simple-select-label">Select</InputLabel>
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              // value={select}
-              label="select"
-            // onChange={handleChange}
+    <div style={{ textAlign: "center",width:"90%",margin:"auto" }}>
 
-            >
+      <Paper sx={{ minWidth: 240, textAlign: "center" }} elevation={10}>
+        <h1>Leave List</h1>
 
-<Link to="/employeeData" style={{ textDecoration: "none" }}>
-                <MenuItem value={"Employees"}>Employee </MenuItem>
-              </Link>
-              <Link to="/departmentData" style={{ textDecoration: "none" }}>
-                <MenuItem value={"Department"}>Department</MenuItem>
-              </Link>
-              <Link to="/Induction" style={{ textDecoration: "none" }}>
-                <MenuItem value={"Induction"}>Induction</MenuItem>
-              </Link>
-              <Link to="/offerletter" style={{ textDecoration: "none" }}>
-              <MenuItem value={"Offer Letter"}>Offer Letter</MenuItem>
+      </Paper >
 
-              </Link>
-              <Link to="/Leaves" style={{ textDecoration: "none" }}>
-              <MenuItem value={"Leaves"}>Leaves</MenuItem>
+      <div style={{ marginBottom: "10px", display: "flex", justifyContent: "space-between" }}>
+        <Link to="/employeeData" style={{ textDecoration: "none" }}>
+          <Button variant="contained" ><ArrowBackIcon /> </Button >
+        </Link>
 
-              </Link>
-              <MenuItem value={"Attendance"}>Attendance</MenuItem>
-             
-              {/* <MenuItem value={30}>Thirty</MenuItem> */}
-
-
-            </Select>
-          </FormControl>
-        </Paper>
+        <Button onClick={handleAdd} variant="contained" ><AddIcon /> </Button >
 
       </div>
-      <Holiday/>
+      <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 700, textAlign: "center" }} aria-label="customized table">
 
-      <div style={{ textAlign: "center", marginRight:"200px" }}>
+          <TableHead>
+            <TableRow >
+              <StyledTableCell align="center"> Employee ID</StyledTableCell>
+              <StyledTableCell align="center"> Index</StyledTableCell>
+              <StyledTableCell align="center">Date</StyledTableCell>
+              <StyledTableCell align="center"> Leave Type</StyledTableCell>
+              <StyledTableCell align="center"> Reason</StyledTableCell>
+              <StyledTableCell align="center"> Leave Start Date</StyledTableCell>
+              <StyledTableCell align="center"> Leave End Date</StyledTableCell>
+              <StyledTableCell align="center"> Approved  By</StyledTableCell>
+              <StyledTableCell align="center"> Remarks</StyledTableCell>
+              <StyledTableCell align="center"> Approved start Date</StyledTableCell>
+              <StyledTableCell align="center"> Approved End Date</StyledTableCell>
 
-        <Paper sx={{ minWidth: 240, textAlign: "center" }} elevation={10}>
-          <h1>Leave TABLE</h1>
 
-        </Paper >
-        <div>
-          <Link to="/addleave">
-          <Button sx={{ marginBottom: "10px", width: "70px", marginLeft: " 600px" }}
-            variant="contained" elevation={10}> ADD </Button>
-          </Link>
-       
-        </div>
-        <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 700, textAlign: "center" }} aria-label="customized table">
-            
-            <TableHead>
-              <TableRow >
-                <StyledTableCell align="center"> Leave ID</StyledTableCell>
-                <StyledTableCell align="center"> Year</StyledTableCell>
-                <StyledTableCell align="center">Date</StyledTableCell>
-                <StyledTableCell align="center"> Leave Type</StyledTableCell>
-               
-    
 
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {empData?.map((row) => (
-                <StyledTableRow onClick={() => handleClick(row)} key={row.id}>
-                 
-                  <StyledTableCell align="center" component="th" scope="row">
-                    {row?.empl_id}
-                  </StyledTableCell>
-                  <StyledTableCell align="center">{row?.year_id}</StyledTableCell>
-                  <StyledTableCell align="center">{row?.eolv_date}</StyledTableCell>
-                  <StyledTableCell align="center">{row?.eolv_leavetype}</StyledTableCell>
-                  
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {leaveData?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)?.map((row) => (
+              <StyledTableRow key={row.id}>
 
-                </StyledTableRow>
-                         
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-        <LeavesDilogbox open={open} handleClose={handleClose} singleData={singleData} />
-      </div>
+                
+                <StyledTableCell  onClick={() => handleClick(row)} align="center">{row?.empl_id}</StyledTableCell>
+                <StyledTableCell align="center">{row?.elrq_index}</StyledTableCell>
+                <StyledTableCell align="center">{row?.elrq_date}</StyledTableCell>
+                <StyledTableCell align="center">{row?.elrq_leavetype}</StyledTableCell>
+                <StyledTableCell align="center">{row?.elrq_reason}</StyledTableCell>
+                <StyledTableCell align="center">{row?.elrq_leavestdate}</StyledTableCell>
+                <StyledTableCell align="center">{row?.elrq_leaveenddate}</StyledTableCell>
+                <StyledTableCell align="center">{row?.elrq_approvedby}</StyledTableCell>
+                <StyledTableCell align="center">{row?.elrq_approvedremarks}</StyledTableCell>
+                <StyledTableCell align="center">{row?.elrq_aprvdleavestdate}</StyledTableCell>
+                <StyledTableCell align="center">{row?.elrq_aprvdleaveenddate}</StyledTableCell>
+
+
+              </StyledTableRow>
+
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+
+      <TablePagination
+        rowsPerPageOptions={[5, 10, 25]}
+        component="div"
+        count={leaveData.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+      />
+      <LeavesDilogbox open={open} handleClose={handleClose} singleData={singleData} />
     </div>
+
   )
 }
 

@@ -8,7 +8,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { Button, FormControl, Grid, InputLabel, MenuItem, Select } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import "./Table.css"
 import EmployeeDilogbox from '../dialogueBox/EmployeeDilogbox';
@@ -123,44 +123,40 @@ useEffect(() => {
 
 
         <Paper sx={{ minWidth: 180, height: 580, textAlign: "center" }} elevation={4}>
-          <FormControl sx={{ width: "130px", marginTop: "20px", }}>
-            <InputLabel id="demo-simple-select-label">Select</InputLabel>
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              // value={select}
-              label="select"
-            // onChange={handleChange}
+         <Grid container spacing={2} sx={{marginTop:"20px"}}>
+<Grid item xs={12}>
+<Link to="/employeeData" style={{ textDecoration: "none" }}>
+                <Button variant="contained" > Go To Employees </Button >
+              </Link>
+</Grid>
+        
 
-            >
+<Grid item xs={12}>
 
-              <Link to="/employeeData" style={{ textDecoration: "none" }}>
-                <MenuItem value={"Employees"}>Employees </MenuItem>
+              <Link to="/holiday" style={{ textDecoration: "none" }}>
+                <Button variant="contained"  >Holidays</Button >
               </Link>
-              <Link to="/departmentData" style={{ textDecoration: "none" }}>
-                <MenuItem value={"Department"}>Department</MenuItem>
-              </Link>
-              <Link to="/Induction" style={{ textDecoration: "none" }}>
-                <MenuItem value={"Induction"}>Induction</MenuItem>
-              </Link>
-              <Link to="/offerletter" style={{ textDecoration: "none" }}>
-                <MenuItem value={"Offer Letter"}>Offer Letter</MenuItem>
+              </Grid>
+<Grid item xs={12}>
 
-              </Link>
               <Link to="/Leaves" style={{ textDecoration: "none" }}>
-                <MenuItem value={"Leaves"}>Leaves</MenuItem>
+                <Button variant="contained"  >Leaves</Button >
 
               </Link>
+</Grid>
+<Grid item xs={12}>
 
-              <MenuItem value={"Attendance"}>Attendance</MenuItem>
+              <Link to="/attandance" style={{ textDecoration: "none" }}>
+                <Button variant="contained"  >Attandance</Button >
 
-              {/* <MenuItem value={30}>Thirty</MenuItem> */}
+              </Link>
+</Grid>
+</Grid>
 
-            </Select>
-          </FormControl>
         </Paper>
+</div>
 
-      </div>
+   
       {/* this is INDUCTION TABLE */}
 
       <div style={{ textAlign: "center", marginRight: "200px",marginLeft:"20px" }}>

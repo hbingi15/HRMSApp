@@ -28,12 +28,20 @@ function AddEmployeeForm({ editData }) {
     dob: "",
     designation: "",
     personalEmail: "",
+    altEmail:"",
     address: "",
 
     fatherName: "",
     gender: "",
     password: "",
-    phoneNumber: ""
+    phoneNumber: "",
+    rmanager_Id:"",
+    hR_Id:"",
+    jobGrade_Id:"",
+    offEmail:"",
+    bloodGroup:"",
+
+
   }
 
   //if status =>from redux is true then add redux stored data in input otherwise add initial state from above
@@ -73,12 +81,18 @@ function AddEmployeeForm({ editData }) {
         dob,
         designation,
         personalEmail,
+        altEmail,
         address,
     
         fatherName,
         gender,
         password,
-        phoneNumber
+        phoneNumber,
+        rmanager_Id,
+        hR_Id,
+        jobGrade_Id,
+        offEmail,
+        bloodGroup,
       } = input
 
 //api to post data(add new data)
@@ -92,12 +106,18 @@ function AddEmployeeForm({ editData }) {
         dob,
         designation,
         personalEmail,
+        altEmail,
         address,
     
         fatherName,
         gender,
         password,
-        phoneNumber
+        phoneNumber,
+        rmanager_Id,
+        hR_Id,
+        jobGrade_Id,
+        offEmail,
+        bloodGroup,
     })
     .then((res) => {
 
@@ -116,7 +136,10 @@ function AddEmployeeForm({ editData }) {
     })
 
   }
+function handleBack(){
+  navigate("/employeeData")
 
+}
   
 
   
@@ -150,6 +173,9 @@ function AddEmployeeForm({ editData }) {
             <TextField onChange={handleChange} name="personalEmail" label="Personal Email ID" value={input.personalEmail} />
           </Grid>
           <Grid item xs={4}>
+            <TextField onChange={handleChange} name="altEmail" label="Alternate Email ID" value={input.altEmail} />
+          </Grid>
+          <Grid item xs={4}>
             <TextField onChange={handleChange} name="address" label="Address" value={input.address} />
           </Grid>
           <Grid item xs={4}>
@@ -157,6 +183,21 @@ function AddEmployeeForm({ editData }) {
           </Grid>
           <Grid item xs={4}>
             <TextField onChange={handleChange} name="gender" label="Gender" value={input.gender} />
+          </Grid>
+          <Grid item xs={4}>
+            <TextField onChange={handleChange} name="bloodGroup" label="Blood Group" value={input.bloodGroup} />
+          </Grid>
+          <Grid item xs={4}>
+            <TextField onChange={handleChange} name="rmanager_Id" label="Rmanager Id" value={input.rmanager_Id} />
+          </Grid>
+          <Grid item xs={4}>
+            <TextField onChange={handleChange} name="hR_Id" label="HR Id" value={input.hR_Id} />
+          </Grid>
+          <Grid item xs={4}>
+            <TextField onChange={handleChange} name="jobGrade_Id" label="JobGrade Id" value={input.jobGrade_Id} />
+          </Grid>
+          <Grid item xs={4}>
+            <TextField onChange={handleChange} name="offEmail" label="Office Email" value={input.offEmail} />
           </Grid>
           <Grid item xs={4}>
             <TextField onChange={handleChange} name="password" label="Password" value={input.password} />
@@ -173,6 +214,8 @@ function AddEmployeeForm({ editData }) {
         </Grid>
       </form>
        <Button variant="contained" onClick={handleSubmit}>SUBMIT</Button> 
+      <Button sx={{marginLeft:"20px"}} variant="contained" onClick={handleBack}>Back</Button>
+
 
     </div>
   )

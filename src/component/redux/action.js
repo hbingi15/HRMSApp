@@ -24,3 +24,15 @@ export const changeStatusOfEmployeeForm = (payload) => {
     payload: payload,
   };
 };
+export const changeStatusOfHolidayForm = (payload) => {
+  return {
+    type: "CHANGE_STATUS_OF_HOLIDAY_FORM",
+    payload: payload,
+  };
+};
+export const editHolidayData = (payload) => {
+  return {
+    type: "EDIT_HOLIDAY_DATA",
+    payload: payload,
+  };
+};

@@ -25,6 +25,9 @@ import InductionAdd from "./component/PostDataTabal.jsx/InductionAdd";
 import LeaveAddData from "./component/PostDataTabal.jsx/LeaveAddData";
 import LeavesChart from "./component/charts/LeavesChart";
 import EditEmployee from "./component/employeeForm/EditEmployeeForm";
+import Holiday from "./component/Table/Holiday";
+import EditHoliday from "./component/holidayForm/EditHolidayForm";
+import AddLeave from "./component/PostDataTabal.jsx/LeaveAddData";
 
 
 function App() {
@@ -55,6 +58,8 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Dashboard />} />
             <Route exact path="/Signup" element={<Signup />} />
+            <Route exact path="/holiday" element={<Holiday />} />
+            <Route exact path="/editHoliday" element={<EditHoliday />} />
             {/* <Route path="/" element={<SideBar/> }/> */}
             <Route exact path="/admin" element={<Admin />} />
             <Route exact path="/Profile" element={<Profile />} />
@@ -70,7 +75,8 @@ function App() {
             <Route exact path="/Induction/InductionUploadPost" element={<InductionUploadPost />} />
             <Route exact path="Induction/InductionAdd" element={< InductionAdd/>} />
             <Route exact path="/Employee/addEmployee" element={< AddEmployeeForm/>} />
-            <Route exact path="/addLeave" element={< LeaveAddData/>} />
+            
+            <Route exact path="/addLeave" element={< AddLeave/>} />
             <Route
               exact 
               path="/admin/departmentData"d

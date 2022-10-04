@@ -41,15 +41,16 @@ function Login({ type }) {
     })
       .then((res) => res.json())
       .then((data) => {
-        setMsg(data?.msg);
-        setOpen(true);
+        console.log(data,"data")
+        // setMsg(data?.msg);
+        // setOpen(true);
 
-        dispatch(loggedUserData(data));
-        if (data?.data.userType === "admin") {
-          navigate("/admin");
-        } else if (data?.data?.userType === "emp") {
-          navigate("/employee");
-        }
+        // dispatch(loggedUserData(data));
+        // if (data?.data.userType === "admin") {
+        //   navigate("/admin");
+        // } else if (data?.data?.userType === "emp") {
+        //   navigate("/employee");
+        // }
       });
   };
   console.log(msg);
