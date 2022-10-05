@@ -13,7 +13,7 @@ using System.ComponentModel.DataAnnotations;
 namespace HRMSApplication.Controllers.v1
 {
     //[Authorize(Roles = "Admin")]
-    [System.Web.Http.Route("api/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class AdminController : ControllerBase
     {
@@ -97,7 +97,6 @@ namespace HRMSApplication.Controllers.v1
 
 
         //---------------------Get All Users---------------------------
-        // [AllowAnonymous]
         [HttpGet]
         [Route("AllUsers")]
         public IActionResult GetAllUsers()
@@ -147,18 +146,18 @@ namespace HRMSApplication.Controllers.v1
         //-----------User Login---------
         [HttpPost]
         [Route("User/Login")]
-        public async Task<IActionResult> AdminLogin([FromForm] AdminLogin al)
+        public async Task<IActionResult> AdminLogin([FromBody] AdminLogin al)
         {
             try
             {
 
                 var user = _userManager.Users.SingleOrDefault(x => x.UserName == al.UserName);
-                //var roleNames = await _userManager.GetRolesAsync(user);
-                //var userrole = roleNames[0];
-                ////generate token
-                //var token = iau.GenerateToken(user.UserName, userrole);
+                var roleNames = await _userManager.GetRolesAsync(user);
+                var userrole = roleNames[0];
+                
 
                 IEnumerable<EmployeeEntity> employees = null;
+                LoginDetails ld = new LoginDetails();
 
                 if (user != null && await _userManager.CheckPasswordAsync(user, al.Password))
                 {
@@ -166,8 +165,17 @@ namespace HRMSApplication.Controllers.v1
                     using (var conn = edc.CreateConnection())
                     {
                         log.LogInfo("Get All Employees from repository");
+                        var token = iau.GenerateToken(user.UserName, userrole);
+                        
                         employees = (List<EmployeeEntity>)conn.Query<EmployeeEntity>(query, new { @eid = user.Id });
-                        return Ok(employees.ToList());
+                        ld.Employees = employees.ToList();
+                        ld.jwttoken = token;
+
+
+                        return Ok(ld);
+
+                       
+                       // return Ok(token);
                     }
                 }
                 else
@@ -190,9 +198,6 @@ namespace HRMSApplication.Controllers.v1
             try
             {
                 var user = _userManager.Users.SingleOrDefault(x => x.UserName == cp.UserName);
-
-                //IdentityResult result = await _userManager.CreateAsync(user,cp.NewPassword);
-                //user.PasswordHash = cp.NewPassword;
                 IdentityResult result = await _userManager.ChangePasswordAsync(user,cp.OldPassword, cp.NewPassword);
                 if (result.Succeeded)
                 {

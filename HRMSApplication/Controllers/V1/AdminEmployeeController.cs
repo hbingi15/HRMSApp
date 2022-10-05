@@ -9,9 +9,10 @@ using Microsoft.AspNetCore.Mvc;
 namespace HRMSApplication.Controllers.AdminEmployeeController
 {
    
-    //[Authorize(Roles ="Admin")]
-    [Route("api/[controller]")]
+    
     [ApiController]
+    [Route("api/[controller]")]
+    [Authorize(Roles = "Employee")]
     public class AdminEmployeeController : ControllerBase
     { 
         // define the mapper
