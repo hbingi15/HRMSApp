@@ -193,7 +193,7 @@ namespace HRMSApplication.Controllers.v1
         //----------Change Password---------
         [HttpPost]
         [Route("User/ChangePassword")]
-        public async Task<IActionResult> ChangePassword([FromForm] ChangePassword cp)
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePassword cp)
         {
             try
             {
