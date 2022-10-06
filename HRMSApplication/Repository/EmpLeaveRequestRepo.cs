@@ -2,6 +2,7 @@
 using HRMSApplication.Contracts;
 using HRMSApplication.DapperORM;
 using HRMSApplication.Models.Entity;
+using HRMSApplication.Models.Resource;
 using NLog.Fluent;
 
 namespace HRMSApplication.Repository
@@ -37,6 +38,7 @@ namespace HRMSApplication.Repository
             return employees.ToList();
 
         }
+
         public bool AddEmployeeLeaveRequest(EmpLeaveRequestEntity e)
         {
             string query = "insert into employeeleaverequests(empl_id,elrq_index,elrq_date,elrq_leavetype,elrq_reason,elrq_leavestdate,elrq_leaveenddate,elrq_approvedby,elrq_approvedremarks,elrq_aprvdleavestdate,elrq_aprvdleaveenddate) Values(@empl_id,@elrq_index, @elrq_date,@elrq_leavetype,@elrq_reason,@elrq_leavestdate,@elrq_leaveenddate,@elrq_approvedby,@elrq_approvedremarks,@elrq_aprvdleavestdate,@elrq_aprvdleaveenddate)";
@@ -44,7 +46,8 @@ namespace HRMSApplication.Repository
             {
                 using (var conn = edc.CreateConnection())
                 {
-                  conn.Open();
+
+                    conn.Open();
                     log.LogInfo("add new employee function");
                     int nor = conn.Execute(query, new { @empl_id = e.empl_id, @elrq_index = e.elrq_index, @elrq_date = e.elrq_date, @elrq_leavetype = e.elrq_leavetype, @elrq_reason = e.elrq_reason, @elrq_leavestdate = e.elrq_leavestdate, @elrq_leaveenddate = e.elrq_leaveenddate, @elrq_approvedby = e.elrq_approvedby, @elrq_approvedremarks = e.elrq_approvedremarks, @elrq_aprvdleavestdate = e.elrq_aprvdleavestdate, @elrq_aprvdleaveenddate = e.elrq_aprvdleaveenddate });
                     if (nor == 1)
@@ -62,5 +65,56 @@ namespace HRMSApplication.Repository
                 throw msg;
             }
         }
+
+        //----------------Insert Employee Leave Request details to database------------------
+        public bool ApplyLeaveRequest(LeaveRequestInput el)
+        {
+            string query1 = "select elrq_index from employeeleaverequests where empl_id=@id order by elrq_index desc limit 1";
+            int index = 0;
+            string query = "insert into employeeleaverequests(empl_id,elrq_index,elrq_date,elrq_leavetype,elrq_reason,elrq_leavestdate,elrq_leaveenddate,elrq_aprvdleavestdate) Values(@id,@inx,now(),@rq_type,@reason,@stdate,@enddate,now())";
+            try
+            {
+                using (var conn = edc.CreateConnection())
+                {
+
+                    conn.Open();
+                    log.LogInfo("Insert Employee Leave Request details to database");
+
+                    index=conn.ExecuteScalar<int>(query1, new { @id = el.Id });
+
+                    if(index!= 0)
+                    {
+                        int nor = conn.Execute(query, new { @id=el.Id, @inx=index+1, @rq_type=el.LeaveType, @reason=el.Reason, @stdate=el.StartDate, @enddate=el.EndDate});
+                        if (nor == 1)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        int nor = conn.Execute(query, new { @id = el.Id, @inx =1, @rq_type = el.LeaveType, @reason = el.Reason, @stdate = el.StartDate, @enddate = el.EndDate });
+                        if (nor == 1)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+
+                    
+                }
+            }
+            catch (Exception msg)
+            {
+                throw msg;
+            }
+        }
+
     }
 }

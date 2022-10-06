@@ -35,5 +35,15 @@ namespace HRMSApplication.Controllers.V1
             return Ok(ielr.AddEmployeeLeaveRequest(e));
 
         }
+        //---------------Request for leave-------------
+        [HttpPost]
+        [Route("/[Controller]/V1/ApplyLeaveRequest")]
+        public IActionResult ApplyLeaveRequest([FromBody] LeaveRequestInput el)
+        {
+            log.LogInfo(" New EmployeeLeaveRequest is Added");
+            return Ok(ielr.ApplyLeaveRequest(el));
+
+        }
+
     }
 }
