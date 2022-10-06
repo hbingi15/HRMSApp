@@ -62,6 +62,5 @@ namespace HRMSApplication.Repository
                 throw msg;
             }
         }
-
     }
 }
