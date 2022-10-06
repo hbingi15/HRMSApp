@@ -45,8 +45,7 @@ namespace HRMSApplication.Repository
             {
                 using (var conn = edc.CreateConnection())
                 {
-
-                    conn.Open();
+                  conn.Open();
                     log.LogInfo("add new employee function");
                     int nor = conn.Execute(query, new { @empl_id = e.empl_id, @elrq_index = e.elrq_index, @elrq_date = e.elrq_date, @elrq_leavetype = e.elrq_leavetype, @elrq_reason = e.elrq_reason, @elrq_leavestdate = e.elrq_leavestdate, @elrq_leaveenddate = e.elrq_leaveenddate, @elrq_approvedby = e.elrq_approvedby, @elrq_approvedremarks = e.elrq_approvedremarks, @elrq_aprvdleavestdate = e.elrq_aprvdleavestdate, @elrq_aprvdleaveenddate = e.elrq_aprvdleaveenddate });
                     if (nor == 1)
