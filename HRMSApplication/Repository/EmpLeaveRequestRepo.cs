@@ -37,7 +37,6 @@ namespace HRMSApplication.Repository
             return employees.ToList();
 
         }
-
         public bool AddEmployeeLeaveRequest(EmpLeaveRequestEntity e)
         {
             string query = "insert into employeeleaverequests(empl_id,elrq_index,elrq_date,elrq_leavetype,elrq_reason,elrq_leavestdate,elrq_leaveenddate,elrq_approvedby,elrq_approvedremarks,elrq_aprvdleavestdate,elrq_aprvdleaveenddate) Values(@empl_id,@elrq_index, @elrq_date,@elrq_leavetype,@elrq_reason,@elrq_leavestdate,@elrq_leaveenddate,@elrq_approvedby,@elrq_approvedremarks,@elrq_aprvdleavestdate,@elrq_aprvdleaveenddate)";
