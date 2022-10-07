@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using HRMSApplication.Contracts;
 using HRMSApplication.DapperORM;
+using HRMSApplication.Models;
 using HRMSApplication.Models.Entity;
 using HRMSApplication.Models.Resource;
 using NLog.Fluent;
@@ -80,11 +81,11 @@ namespace HRMSApplication.Repository
                     conn.Open();
                     log.LogInfo("Insert Employee Leave Request details to database");
 
-                    index=conn.ExecuteScalar<int>(query1, new { @id = el.Id });
+                    index = conn.ExecuteScalar<int>(query1, new { @id = el.Id });
 
-                    if(index!= 0)
+                    if (index != 0)
                     {
-                        int nor = conn.Execute(query, new { @id=el.Id, @inx=index+1, @rq_type=el.LeaveType, @reason=el.Reason, @stdate=el.StartDate, @enddate=el.EndDate});
+                        int nor = conn.Execute(query, new { @id = el.Id, @inx = index + 1, @rq_type = el.LeaveType, @reason = el.Reason, @stdate = el.StartDate, @enddate = el.EndDate });
                         if (nor == 1)
                         {
                             return true;
@@ -96,7 +97,7 @@ namespace HRMSApplication.Repository
                     }
                     else
                     {
-                        int nor = conn.Execute(query, new { @id = el.Id, @inx =1, @rq_type = el.LeaveType, @reason = el.Reason, @stdate = el.StartDate, @enddate = el.EndDate });
+                        int nor = conn.Execute(query, new { @id = el.Id, @inx = 1, @rq_type = el.LeaveType, @reason = el.Reason, @stdate = el.StartDate, @enddate = el.EndDate });
                         if (nor == 1)
                         {
                             return true;
@@ -107,7 +108,7 @@ namespace HRMSApplication.Repository
                         }
                     }
 
-                    
+
                 }
             }
             catch (Exception msg)
@@ -115,6 +116,44 @@ namespace HRMSApplication.Repository
                 throw msg;
             }
         }
+        //------------Leave Request Approved by Respective HR and update in database-------------
+        public string ApprovedByHr(UpdateRequestInput ur)
+        {
 
+            string query1 = "select elrq_index from employeeleaverequests where empl_id=@id order by elrq_index desc limit 1";
+            //string query2 = "select empl_jbgr_id from employees where empl_id =@id";
+            //string query3 = "select jbgr_nocl, jbgr_nosl, jbgr_nool from jobgradewiseleaves where jbgr_id =@grd";
+            string query4 = "update employeeleaverequests  set elrq_approvedby=@aphr,elrq_approvedremarks=@rm,elrq_aprvdleaveenddate=now() where empl_id=@id and elrq_index=@eind";
+            int index = 0;
+            //string grade = null;
+            //Gradewiseleavedetails gld = new Gradewiseleavedetails();
+            //var r = (dynamic)null;
+            //int res;
+            try
+            {
+                using (var conn = edc.CreateConnection())
+                {
+                    conn.Open();
+                    log.LogInfo("Leave Request Approved by Respective HR and update in database");
+                    index = conn.ExecuteScalar<int>(query1, new { @id = ur.Id });
+                    //grade = conn.ExecuteScalar<string>(query2, new { @id = ur.Id });
+                    //r = conn.ExecuteReader(query3, new { @grd = grade });
+                    int nor = conn.Execute(query4, new { @id = ur.Id, @aphr=ur.Approved_HrId, @rm=ur.Remarks, @eind=index });
+                    if (nor == 1)
+                    {
+                        return "Approved";
+                    }
+                    else
+                    {
+                        return "Not Approved";
+                    }
+
+                }
+            }
+            catch (Exception msg)
+            {
+                throw msg;
+            }
+        }
     }
 }

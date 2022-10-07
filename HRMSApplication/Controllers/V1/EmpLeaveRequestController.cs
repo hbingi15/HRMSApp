@@ -40,8 +40,18 @@ namespace HRMSApplication.Controllers.V1
         [Route("/[Controller]/V1/ApplyLeaveRequest")]
         public IActionResult ApplyLeaveRequest([FromBody] LeaveRequestInput el)
         {
-            log.LogInfo(" New EmployeeLeaveRequest is Added");
+            log.LogInfo("Request for leave");
             return Ok(ielr.ApplyLeaveRequest(el));
+
+        }
+
+        //--------------Leave Request Approved by Respective HR-------------
+        [HttpPost]
+        [Route("/[Controller]/V1/ApprovedByHr")]
+        public IActionResult ApprovedByHr([FromBody] UpdateRequestInput ur)
+        {
+            log.LogInfo("Leave Request Approved by Respective HR");
+            return Ok(ielr.ApprovedByHr(ur));
 
         }
 

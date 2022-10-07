@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using HRMSApplication.Contracts;
-/*using HRMSApplication.EntityModels;*/
 using HRMSApplication.Models.Entity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -12,7 +11,7 @@ namespace HRMSApplication.Controllers.AdminEmployeeController
     
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize(Roles = "Employee")]
+    //[Authorize(Roles = "Employee")]
     public class AdminEmployeeController : ControllerBase
     { 
         // define the mapper

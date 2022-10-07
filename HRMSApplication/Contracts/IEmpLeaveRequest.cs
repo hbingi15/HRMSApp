@@ -8,5 +8,6 @@ namespace HRMSApplication.Contracts
         public IEnumerable<EmpLeaveRequestEntity> GetAllEmployeeRequest();
         public bool AddEmployeeLeaveRequest(EmpLeaveRequestEntity e);
         public bool ApplyLeaveRequest(LeaveRequestInput el);
+        public string ApprovedByHr(UpdateRequestInput ur);
     }
 }
