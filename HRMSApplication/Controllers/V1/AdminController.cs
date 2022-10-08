@@ -25,7 +25,6 @@ namespace HRMSApplication.Controllers.v1
         IUser iu;
         IAuthent ia;
         private RoleManager<IdentityRole> roleManager;
-        IAuthent iau;
         EmployeeDapperContext edc;
         public AdminController(ILoggerManager log, UserManager<ApplicationUser> umg, IPasswordHasher<ApplicationUser> passwordHasher, IUser iu, IAuthent ia, RoleManager<IdentityRole> roleManager, IAuthent iau, EmployeeDapperContext edc)
         {
@@ -35,7 +34,7 @@ namespace HRMSApplication.Controllers.v1
             this.iu = iu;
             this.ia = ia;
             this.roleManager = roleManager;
-            this.iau = iau;
+ 
             this.edc = edc;
         }
 
@@ -165,7 +164,7 @@ namespace HRMSApplication.Controllers.v1
                     using (var conn = edc.CreateConnection())
                     {
                         log.LogInfo("Get All Employees from repository");
-                        var token = iau.GenerateToken(user.UserName, userrole);
+                        var token = ia.GenerateToken(user.UserName, userrole);
                         
                         employees = (List<EmployeeEntity>)conn.Query<EmployeeEntity>(query, new { @eid = user.Id });
                         ld.Employees = employees.ToList();

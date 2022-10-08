@@ -167,5 +167,70 @@ namespace HRMSApplication.Repository.AttendanceRepository
             }
             return ma;
         }
+        public List<AllEmpAtnd> AllEmployeeAttendance()
+        {
+            List<AllEmpAtnd> da = new List<AllEmpAtnd>();
+            string query = "select *from employeeattendance";
+           // string query1 = "select distinct empl_id from employeeattendance";
+            //int[] matd = null;
+            int i;
+            try
+            {
+                using (var conn = edc.CreateConnection())
+                {
+                    conn.Open();
+                    da = (List<AllEmpAtnd>)conn.Query<AllEmpAtnd>(query);
+
+                    //var reader= conn.ExecuteReader(query);
+                    //while (reader.Read())
+                    //{
+                    //    i = Int32.Parse(reader["empl_id"].ToString());
+                    //    i++;
+                    //}
+                    return da.ToList();
+                }
+            }
+            catch (Exception msg)
+            {
+                throw msg;
+            }
+        }
+        public List<AllEmpAtnd> AllEmployeeAttendancebyMonth(DateTime dt)
+        {
+            List<AllEmpAtnd> da = new List<AllEmpAtnd>();
+            string query = "select *from employeeattendance";
+
+            MonthAttendanceEntity ma = new MonthAttendanceEntity();
+            //--Query for getting starting day of given date
+            string query1 = "select date_trunc('month',@gdt)";
+
+            //--Query for getting ending day of given date
+            string query2 = "SELECT (date_trunc('month', @gdt::date) + interval '1 month' - interval '1 day')::date";
+
+
+            string query3 = " select * from employeeattendance where date_id>=@st and date_id<=@et";
+
+            DateTime stdt, endt;
+            List<AllEmpAtnd> ae = new List<AllEmpAtnd>();
+
+            try
+            {
+                using (var conn = edc.CreateConnection())
+                {
+                    conn.Open();               
+                    log.LogInfo("Calculate Monthly Attendance of Particular Employee");
+                    stdt = conn.ExecuteScalar<DateTime>(query1, new { @gdt = dt });
+                    endt = conn.ExecuteScalar<DateTime>(query2, new { @gdt = dt });
+                    var aep = conn.ExecuteReader(query3);
+
+                    return da.ToList();
+                }
+            }
+            catch (Exception msg)
+            {
+                throw msg;
+            }
+        }
+
     }
 }

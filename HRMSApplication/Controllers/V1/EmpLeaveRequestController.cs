@@ -19,7 +19,7 @@ namespace HRMSApplication.Controllers.V1
             this.imap = im;
         }
         [HttpGet]
-        [Route("/[Controller]/V1/AllEmployeeRequest")]
+        [Route("/[Controller]/V1/AllEmployeeApprovedLeaves")]
         public IActionResult GetAllEmployeeRequest()
         {
             log.LogInfo("Get All EmployeeRequest");
@@ -52,7 +52,15 @@ namespace HRMSApplication.Controllers.V1
         {
             log.LogInfo("Leave Request Approved by Respective HR");
             return Ok(ielr.ApprovedByHr(ur));
+        }
 
+        //--------------Employee Approved Leaves-------------------
+        [HttpPost]
+        [Route("/[Controller]/V1/EmployeeApprovedLeaves")]
+        public IActionResult EmployeeApprovedLeaves(EmpAprLeavInput el)
+        {
+            log.LogInfo("Employee Approved Leaves");
+            return Ok(ielr.EmployeeApprovedLeaves(el));
         }
 
     }

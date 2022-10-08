@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HRMSApplication.Controllers.V1
 {
-    [Authorize(Roles = "Employee")]
+    //[Authorize(Roles = "Employee")]
     [Route("api/[controller]")]
     [ApiController]
     public class HolydayController : Controller

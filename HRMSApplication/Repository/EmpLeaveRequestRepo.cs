@@ -24,7 +24,7 @@ namespace HRMSApplication.Repository
             try
             {
                 log.LogInfo("get the All Employees");
-                var query = "select *from EmployeeLeaveRequests";
+                var query = "select *from EmployeeLeaveRequests where elrq_approvedremarks = 'Approved'";
                 using (var conn = edc.CreateConnection())
                 {
                     log.LogInfo("Get All Employees from repository");
@@ -155,5 +155,28 @@ namespace HRMSApplication.Repository
                 throw msg;
             }
         }
+
+        public List<EmpLeaveRequestEntity> EmployeeApprovedLeaves(EmpAprLeavInput el)
+        {
+            var query = "select * from employeeleaverequests where elrq_approvedremarks = 'Approved' and empl_id = "+el.Employee_ID;
+            List<EmpLeaveRequestEntity> empreq = null;
+            try
+            {
+                log.LogInfo("get the All Employees");
+           
+                using (var conn = edc.CreateConnection())
+                {
+                    log.LogInfo("Get All Employees from repository");
+                    empreq = (List<EmpLeaveRequestEntity>)conn.Query<EmpLeaveRequestEntity>(query);
+                    return empreq.ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+          
+        }
+
     }
 }

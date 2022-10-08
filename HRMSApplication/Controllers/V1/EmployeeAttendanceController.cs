@@ -52,5 +52,11 @@ namespace HRMSApplication.Controllers.V1
             log.LogInfo("Calculate Month Attendance");
             return Ok(iea.CalculateMonthAttendance(da));
         }
+        [HttpGet]
+        [Route("/[Controller]/V1/AllEmployeeAttendance")]
+        public IActionResult AllEmployeeAttendance()
+        {
+            return Ok(iea.AllEmployeeAttendance());
+        }
     }
 }
