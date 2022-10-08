@@ -26,3 +26,11 @@
 2022-10-08 12:47:08.5352 INFO Employee Approved Leaves
 2022-10-08 12:47:08.5352 INFO get the All Employees
 2022-10-08 12:47:08.5352 INFO Get All Employees from repository
+2022-10-08 15:26:22.4078 DEBUG init main
+2022-10-08 15:29:11.3394 INFO Calculate Monthly Attendance of Particular Employee
+2022-10-08 15:36:57.7213 INFO Calculate Monthly Attendance of Particular Employee
+2022-10-08 15:40:01.8567 DEBUG init main
+2022-10-08 15:41:36.5633 INFO Calculate Monthly Attendance of Particular Employee
+2022-10-08 15:43:21.2238 DEBUG init main
+2022-10-08 15:51:18.2782 DEBUG init main
+2022-10-08 15:53:35.1713 INFO Calculate Monthly Attendance of Particular Employee

@@ -200,7 +200,7 @@ namespace HRMSApplication.Repository.AttendanceRepository
             List<AllEmpAtnd> da = new List<AllEmpAtnd>();
             string query = "select *from employeeattendance";
 
-            MonthAttendanceEntity ma = new MonthAttendanceEntity();
+            //MonthAttendanceEntity ma = new MonthAttendanceEntity();
             //--Query for getting starting day of given date
             string query1 = "select date_trunc('month',@gdt)";
 
@@ -221,9 +221,9 @@ namespace HRMSApplication.Repository.AttendanceRepository
                     log.LogInfo("Calculate Monthly Attendance of Particular Employee");
                     stdt = conn.ExecuteScalar<DateTime>(query1, new { @gdt = dt });
                     endt = conn.ExecuteScalar<DateTime>(query2, new { @gdt = dt });
-                    var aep = conn.ExecuteReader(query3);
+                    ae = (List<AllEmpAtnd>)conn.Query<AllEmpAtnd>(query3, new {@st=stdt,@et=endt}); 
 
-                    return da.ToList();
+                    return ae.ToList();
                 }
             }
             catch (Exception msg)

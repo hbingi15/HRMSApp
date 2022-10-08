@@ -9,5 +9,7 @@ namespace HRMSApplication.Contracts.EmpAttendance
         public int CalculateDayAttendance(DayAttendanceEntity da);
         public MonthAttendanceEntity CalculateMonthAttendance(DayAttendanceEntity da);
         public List<AllEmpAtnd> AllEmployeeAttendance();
+
+        public List<AllEmpAtnd> AllEmployeeAttendancebyMonth(DateTime dt);
     }
 }

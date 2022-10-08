@@ -58,5 +58,12 @@ namespace HRMSApplication.Controllers.V1
         {
             return Ok(iea.AllEmployeeAttendance());
         }
+
+        [HttpPost]
+        [Route("/[Controller]/V1/AllEmployeeAttendancebyMonth")]
+        public IActionResult AllEmployeeAttendancebyMonth(DateTime dt)
+        {
+            return Ok(iea.AllEmployeeAttendancebyMonth(dt));
+        }
     }
 }
