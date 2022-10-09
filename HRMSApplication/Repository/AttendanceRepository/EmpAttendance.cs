@@ -195,7 +195,7 @@ namespace HRMSApplication.Repository.AttendanceRepository
                 throw msg;
             }
         }
-        public List<AllEmpAtnd> AllEmployeeAttendancebyMonth(DateTime dt)
+        public List<AllEmpAtnd> AllEmployeeAttendancebyMonth(MothAttendance dt)
         {
             List<AllEmpAtnd> da = new List<AllEmpAtnd>();
             string query = "select *from employeeattendance";
@@ -219,8 +219,8 @@ namespace HRMSApplication.Repository.AttendanceRepository
                 {
                     conn.Open();               
                     log.LogInfo("Calculate Monthly Attendance of Particular Employee");
-                    stdt = conn.ExecuteScalar<DateTime>(query1, new { @gdt = dt });
-                    endt = conn.ExecuteScalar<DateTime>(query2, new { @gdt = dt });
+                    stdt = conn.ExecuteScalar<DateTime>(query1, new { @gdt = dt.dt });
+                    endt = conn.ExecuteScalar<DateTime>(query2, new { @gdt = dt.dt });
                     ae = (List<AllEmpAtnd>)conn.Query<AllEmpAtnd>(query3, new {@st=stdt,@et=endt}); 
 
                     return ae.ToList();

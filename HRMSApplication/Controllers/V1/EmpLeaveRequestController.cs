@@ -46,7 +46,7 @@ namespace HRMSApplication.Controllers.V1
         }
 
         //--------------Leave Request Approved by Respective HR-------------
-        [HttpPost]
+        [HttpPut]
         [Route("/[Controller]/V1/ApprovedByHr")]
         public IActionResult ApprovedByHr([FromBody] UpdateRequestInput ur)
         {
@@ -57,7 +57,7 @@ namespace HRMSApplication.Controllers.V1
         //--------------Employee Approved Leaves-------------------
         [HttpPost]
         [Route("/[Controller]/V1/EmployeeApprovedLeaves")]
-        public IActionResult EmployeeApprovedLeaves(EmpAprLeavInput el)
+        public IActionResult EmployeeApprovedLeaves([FromBody]EmpAprLeavInput el)
         {
             log.LogInfo("Employee Approved Leaves");
             return Ok(ielr.EmployeeApprovedLeaves(el));

@@ -61,7 +61,7 @@ namespace HRMSApplication.Controllers.V1
 
         [HttpPost]
         [Route("/[Controller]/V1/AllEmployeeAttendancebyMonth")]
-        public IActionResult AllEmployeeAttendancebyMonth(DateTime dt)
+        public IActionResult AllEmployeeAttendancebyMonth([FromBody] MothAttendance dt)
         {
             return Ok(iea.AllEmployeeAttendancebyMonth(dt));
         }
