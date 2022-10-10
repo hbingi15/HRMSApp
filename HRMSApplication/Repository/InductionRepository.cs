@@ -1,4 +1,4 @@
-﻿using Dapper;
+using Dapper;
 using Grpc.Core;
 using HRMSApplication.Contracts;
 using HRMSApplication.DapperORM;
@@ -106,3 +106,4 @@ namespace HRMSApplication.Repository
     }
 }
     
+  
